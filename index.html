@@ -1,0 +1,1350 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Honest Club - Career Coaching and Community for Product Designers
+        </title>
+        <meta
+            name="description"
+            content="Career coaching and community for designers who need more than 'just network' and 'build a great portfolio.' Design your career on your own terms."
+        />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://use.typekit.net/cnj2ncy.css" />
+
+        <style>
+            /* CSS Reset & Base Styles */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                /* Color Palette */
+                --light-beige: #f5f0e8;
+                --beige: #d9c7a3;
+                --dark-green: #283618;
+                --sage-green: #606c38;
+                --charcoal: #0d0d0d;
+                --sand: #c9a86b;
+
+                /* Typography */
+                --font-serif: "new-spirit", Georgia, serif;
+                --font-sans:
+                    "aktiv-grotesk", -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", sans-serif;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: var(--font-sans);
+                background-color: var(--light-beige);
+                color: var(--charcoal);
+                line-height: 1.5;
+                overflow-x: hidden;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            /* ==================== */
+            /* ANIMATION KEYFRAMES  */
+            /* ==================== */
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-8px);
+                }
+            }
+
+            @keyframes pulse {
+                0%,
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1.2);
+                    opacity: 0.7;
+                }
+            }
+
+            @keyframes scaleIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            /* ==================== */
+            /* SCROLL ANIMATIONS    */
+            /* ==================== */
+
+            .animate-on-scroll {
+                opacity: 0;
+                transition:
+                    opacity 0.7s ease,
+                    transform 0.7s ease;
+            }
+
+            .animate-on-scroll.fade-up {
+                transform: translateY(40px);
+            }
+
+            .animate-on-scroll.fade-left {
+                transform: translateX(-50px);
+            }
+
+            .animate-on-scroll.fade-right {
+                transform: translateX(50px);
+            }
+
+            .animate-on-scroll.scale-in {
+                transform: scale(0.95);
+            }
+
+            .animate-on-scroll.visible {
+                opacity: 1;
+                transform: translateY(0) translateX(0) scale(1);
+            }
+
+            /* Stagger delays for children */
+            .stagger-children > *:nth-child(1) {
+                transition-delay: 0ms;
+            }
+            .stagger-children > *:nth-child(2) {
+                transition-delay: 150ms;
+            }
+            .stagger-children > *:nth-child(3) {
+                transition-delay: 300ms;
+            }
+            .stagger-children > *:nth-child(4) {
+                transition-delay: 450ms;
+            }
+
+            /* ==================== */
+            /* NAVIGATION           */
+            /* ==================== */
+
+            .nav {
+                background-color: var(--dark-green);
+                padding: 48px 80px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                animation: fadeIn 0.8s ease;
+            }
+
+            .nav-logo {
+                height: 24px;
+                width: auto;
+                transition: transform 0.3s ease;
+            }
+
+            .nav-logo-link:hover .nav-logo {
+                transform: scale(1.05);
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 40px;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+            }
+
+            .nav-links a {
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--beige);
+                position: relative;
+                transition: color 0.3s ease;
+            }
+
+            /* Animated underline effect */
+            .nav-links a::after {
+                content: "";
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--light-beige);
+                transition: width 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: var(--light-beige);
+            }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+
+            .nav-social {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .nav-social a {
+                color: var(--beige);
+                transition:
+                    color 0.3s ease,
+                    transform 0.3s ease;
+            }
+
+            .nav-social a:hover {
+                color: var(--light-beige);
+                transform: translateY(-3px);
+            }
+
+            .nav-social svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            /* ==================== */
+            /* HERO SECTION         */
+            /* ==================== */
+
+            .hero {
+                background-color: var(--dark-green);
+                padding: 0 80px 160px;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 70%;
+                margin: 0 auto;
+                padding-top: 80px;
+            }
+
+            .hero h1 {
+                font-family: var(--font-serif);
+                font-size: 48px;
+                font-weight: 400;
+                color: var(--light-beige);
+                line-height: 1.2;
+                margin-bottom: 16px;
+                animation: fadeInUp 0.8s ease 0.2s both;
+            }
+
+            .hero p {
+                font-size: 24px;
+                color: var(--beige);
+                line-height: 1.5;
+                animation: fadeInUp 0.8s ease 0.4s both;
+            }
+
+            /* Hero Image with parallax-like effect */
+            .hero-image {
+                width: 100%;
+                height: 525px;
+                overflow: hidden;
+                position: relative;
+                background-color: var(--dark-green);
+            }
+
+            .hero-image img {
+                width: 100%;
+                height: 120%;
+                object-fit: cover;
+                object-position: center 30%;
+                transition: transform 0.3s ease;
+                animation: scaleIn 1s ease 0.3s both;
+            }
+
+            .hero-image:hover img {
+                transform: scale(1.02);
+            }
+
+            /* ==================== */
+            /* EVENTS SECTION       */
+            /* ==================== */
+
+            .events {
+                background-color: var(--sage-green);
+                padding: 80px 80px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Decorative background element */
+            .events::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.05) 0%,
+                    transparent 70%
+                );
+                border-radius: 50%;
+                pointer-events: none;
+            }
+
+            .events-content {
+                max-width: 70%;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .events h2 {
+                font-family: var(--font-serif);
+                font-size: 48px;
+                font-weight: 400;
+                color: var(--light-beige);
+                margin-bottom: 24px;
+            }
+
+            .events-date {
+                font-size: 24px;
+                font-weight: 600;
+                color: var(--light-beige);
+                margin-bottom: 24px;
+                align-items: center;
+                gap: 12px;
+            }
+
+            /* Pulsing dot before date */
+            .events-date::before {
+                content: "";
+                width: 10px;
+                height: 10px;
+                background-color: var(--light-beige);
+                border-radius: 50%;
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+            .events-description {
+                font-size: 20px;
+                color: var(--beige);
+                line-height: 1.4;
+                margin-bottom: 32px;
+            }
+
+            /* ==================== */
+            /* BUTTON STYLES        */
+            /* ==================== */
+
+            .btn {
+                display: inline-block;
+                background-color: var(--dark-green);
+                color: var(--light-beige);
+                font-size: 20px;
+                font-weight: 600;
+                padding: 12px 36px;
+                border-radius: 100px;
+                cursor: pointer;
+                border: none;
+                position: relative;
+                overflow: hidden;
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+            }
+
+            /* Shimmer effect on hover */
+            .btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                transition: left 0.5s ease;
+            }
+
+            .btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            }
+
+            .btn:hover::before {
+                left: 100%;
+            }
+
+            .btn:active {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            /* ==================== */
+            /* VALUES SECTION       */
+            /* ==================== */
+
+            .values {
+                padding: 80px 80px;
+                background-color: var(--light-beige);
+            }
+
+            .values-header {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            .values-header h2 {
+                font-family: var(--font-serif);
+                font-size: 48px;
+                font-weight: 400;
+                color: var(--dark-green);
+            }
+
+            .values-list {
+                max-width: 70%;
+                margin: 0 auto;
+            }
+
+            .value-item {
+                display: flex;
+                align-items: center;
+                gap: 48px;
+                padding: 40px 0;
+                border-top: 1px solid var(--beige);
+            }
+
+            .value-item:last-child {
+                border-bottom: none;
+            }
+
+            .value-item:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            .value-image {
+                width: 400px;
+                height: 267px;
+                flex-shrink: 0;
+                border-radius: 24px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .value-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s ease;
+            }
+
+            /* Image zoom on hover */
+            .value-image:hover img {
+                transform: scale(1.08);
+            }
+
+            /* Gradient overlay on hover */
+            .value-image::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                border-radius: 24px;
+            }
+
+            .value-image:hover::after {
+                opacity: 1;
+            }
+
+            .value-text {
+                flex: 1;
+            }
+
+            .value-text h3 {
+                font-family: var(--font-serif);
+                font-size: 32px;
+                font-weight: 400;
+                color: var(--sage-green);
+                margin-bottom: 24px;
+                transition: color 0.3s ease;
+            }
+
+            .value-item:hover .value-text h3 {
+                color: var(--dark-green);
+            }
+
+            .value-text p {
+                font-size: 20px;
+                line-height: 1.5;
+                color: var(--charcoal);
+            }
+
+            /* ==================== */
+            /* COACHING SECTION     */
+            /* ==================== */
+
+            .coaching {
+                background-color: var(--beige);
+                padding: 160px 80px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .coaching-content {
+                max-width: 70%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .coaching-icon {
+                width: 38px;
+                height: 30px;
+                margin: 0 auto 24px;
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .coaching h2 {
+                font-family: var(--font-serif);
+                font-size: 48px;
+                font-weight: 400;
+                color: var(--dark-green);
+                margin-bottom: 24px;
+            }
+
+            .coaching p {
+                font-size: 20px;
+                color: var(--charcoal);
+                margin-bottom: 32px;
+            }
+
+            /* ==================== */
+            /* DISCORD SECTION      */
+            /* ==================== */
+
+            .discord {
+                background-color: var(--sage-green);
+                padding: 160px 80px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .discord-content {
+                max-width: 70%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .discord-icon {
+                width: 39px;
+                height: 30px;
+                margin: 0 auto 24px;
+                animation: float 3s ease-in-out infinite;
+                animation-delay: 0.5s;
+            }
+
+            .discord h2 {
+                font-family: var(--font-serif);
+                font-size: 48px;
+                font-weight: 400;
+                color: var(--light-beige);
+                margin-bottom: 24px;
+            }
+
+            .discord p {
+                font-size: 20px;
+                color: var(--beige);
+                margin-bottom: 32px;
+            }
+
+            /* ==================== */
+            /* FOUNDER SECTION      */
+            /* ==================== */
+
+            .founder {
+                padding: 80px 80px;
+                background-color: var(--light-beige);
+            }
+
+            .founder-header {
+                margin-bottom: 40px;
+            }
+
+            .founder-header h2 {
+                font-family: var(--font-serif);
+                font-size: 48px;
+                font-weight: 400;
+                color: var(--dark-green);
+            }
+
+            .founder-header p {
+                font-size: 24px;
+                font-weight: 600;
+                color: var(--dark-green);
+            }
+
+            .founder-content {
+                display: flex;
+                gap: 48px;
+                max-width: 70%;
+            }
+
+            .founder-image {
+                width: 400px;
+                height: 500px;
+                flex-shrink: 0;
+                border-radius: 24px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .founder-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.6s ease;
+            }
+
+            .founder-image:hover img {
+                transform: scale(1.05);
+            }
+
+            /* Decorative corner accents */
+            .founder-image::before,
+            .founder-image::after {
+                content: "";
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+                transition:
+                    opacity 0.4s ease,
+                    transform 0.4s ease;
+                pointer-events: none;
+                z-index: 2;
+            }
+
+            .founder-image::before {
+                top: 16px;
+                left: 16px;
+                border-right: none;
+                border-bottom: none;
+                border-radius: 12px 0 0 0;
+                transform: translate(-10px, -10px);
+            }
+
+            .founder-image::after {
+                bottom: 16px;
+                right: 16px;
+                border-left: none;
+                border-top: none;
+                border-radius: 0 0 12px 0;
+                transform: translate(10px, 10px);
+            }
+
+            .founder-image:hover::before,
+            .founder-image:hover::after {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+
+            .founder-bio {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .founder-bio p {
+                font-size: 16px;
+                line-height: 1.5;
+                color: var(--charcoal);
+            }
+
+            /* ==================== */
+            /* FOOTER               */
+            /* ==================== */
+
+            .footer {
+                background-color: var(--dark-green);
+                padding: 96px 80px;
+            }
+
+            .footer-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .footer-brand {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .footer-logo {
+                height: 24px;
+                width: auto;
+                transition: transform 0.3s ease;
+            }
+
+            .footer-brand:hover .footer-logo {
+                transform: scale(1.05);
+            }
+
+            .footer-copyright {
+                font-size: 16px;
+                font-weight: 500;
+                color: var(--light-beige);
+            }
+
+            .footer-links {
+                display: flex;
+                gap: 40px;
+            }
+
+            .footer-column {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .footer-column-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: var(--sand);
+                margin-bottom: 4px;
+            }
+
+            .footer-column a {
+                font-size: 16px;
+                font-weight: 500;
+                color: var(--beige);
+                position: relative;
+                transition:
+                    color 0.3s ease,
+                    padding-left 0.3s ease;
+            }
+
+            .footer-column a:hover {
+                color: var(--light-beige);
+                padding-left: 8px;
+            }
+
+            /* ==================== */
+            /* RESPONSIVE STYLES    */
+            /* ==================== */
+
+            @media (max-width: 1024px) {
+                .nav {
+                    padding: 32px 40px;
+                }
+
+                .nav-links {
+                    gap: 24px;
+                }
+
+                .nav-links a {
+                    font-size: 16px;
+                }
+
+                .hero {
+                    padding: 0 40px 60px;
+                }
+
+                .hero h1 {
+                    font-size: 40px;
+                }
+
+                .hero p {
+                    font-size: 20px;
+                }
+
+                .events,
+                .coaching,
+                .discord {
+                    padding: 100px 40px;
+                }
+
+                .events h2,
+                .coaching h2,
+                .discord h2 {
+                    font-size: 40px;
+                }
+
+                .values {
+                    padding: 60px 40px;
+                }
+
+                .value-item {
+                    gap: 32px;
+                }
+
+                .value-image {
+                    width: 300px;
+                    height: 200px;
+                }
+
+                .founder {
+                    padding: 60px 40px;
+                }
+
+                .founder-content {
+                    gap: 32px;
+                }
+
+                .founder-image {
+                    width: 300px;
+                    height: 400px;
+                }
+
+                .footer {
+                    padding: 60px 40px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .nav {
+                    flex-wrap: wrap;
+                    gap: 24px;
+                    padding: 24px;
+                }
+
+                .nav-links {
+                    order: 3;
+                    width: 100%;
+                    justify-content: center;
+                    gap: 16px;
+                    flex-wrap: wrap;
+                }
+
+                .nav-links a {
+                    font-size: 14px;
+                }
+
+                .hero-content {
+                    padding-top: 40px;
+                }
+
+                .hero h1 {
+                    font-size: 32px;
+                }
+
+                .hero p {
+                    font-size: 18px;
+                }
+
+                .hero-image {
+                    height: 350px;
+                }
+
+                .events,
+                .coaching,
+                .discord {
+                    padding: 80px 24px;
+                }
+
+                .events h2,
+                .coaching h2,
+                .discord h2,
+                .values-header h2,
+                .founder-header h2 {
+                    font-size: 32px;
+                }
+
+                .events-date {
+                    font-size: 20px;
+                }
+
+                .events-description,
+                .coaching p,
+                .discord p {
+                    font-size: 16px;
+                }
+
+                .btn {
+                    font-size: 16px;
+                    padding: 10px 28px;
+                }
+
+                .values {
+                    padding: 48px 24px;
+                }
+
+                .value-item,
+                .value-item:nth-child(even) {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .value-image {
+                    width: 100%;
+                    max-width: 400px;
+                    height: 220px;
+                }
+
+                .value-text h3 {
+                    font-size: 28px;
+                }
+
+                .founder {
+                    padding: 48px 24px;
+                }
+
+                .founder-header {
+                    text-align: center;
+                }
+
+                .founder-content {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .founder-image {
+                    width: 100%;
+                    max-width: 400px;
+                    height: 350px;
+                }
+
+                .founder-bio {
+                    text-align: center;
+                }
+
+                .footer {
+                    padding: 48px 24px;
+                }
+
+                .footer-content {
+                    flex-direction: column;
+                    gap: 40px;
+                }
+
+                .footer-links {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .nav-social {
+                    display: none;
+                }
+
+                .hero h1 {
+                    font-size: 28px;
+                }
+
+                .hero p {
+                    font-size: 16px;
+                }
+
+                .hero-image {
+                    height: 280px;
+                }
+
+                .events h2,
+                .coaching h2,
+                .discord h2,
+                .values-header h2,
+                .founder-header h2 {
+                    font-size: 28px;
+                }
+
+                .value-text h3 {
+                    font-size: 24px;
+                }
+
+                .founder-header p {
+                    font-size: 20px;
+                }
+            }
+
+            /* ==================== */
+            /* REDUCED MOTION       */
+            /* ==================== */
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+
+                html {
+                    scroll-behavior: auto;
+                }
+
+                .animate-on-scroll {
+                    opacity: 1;
+                    transform: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="/" class="nav-logo-link">
+                <img
+                    src="images/honest-club-logo.svg"
+                    alt="Honest Club"
+                    height="24"
+                />
+            </a>
+            <div class="nav-social">
+                <a
+                    href="https://instagram.com/joinhonestclub"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                >
+                    <img
+                        src="images/icon-instagram.svg"
+                        alt="Honest Club Instagram"
+                        height="24"
+                    />
+                </a>
+                <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                >
+                    <img
+                        src="images/icon-email.svg"
+                        alt="Email Honest Club"
+                        height="24"
+                    />
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Design your career on your own terms</h1>
+                <p>
+                    The advice isn't wrong—it's just incomplete. Career coaching
+                    and community for designers who need more than 'just
+                    network' and 'build a great portfolio.'
+                </p>
+            </div>
+        </header>
+
+        <!-- Hero Image -->
+        <div class="hero-image">
+            <img
+                src="images/hero-image.png"
+                alt="Group of diverse designers collaborating in a warm, plant-filled workspace"
+            />
+        </div>
+
+        <!-- Events Section -->
+        <section id="events" class="events">
+            <div class="events-content animate-on-scroll fade-up">
+                <h2>Join us for an honest chat</h2>
+                <p class="events-date">Next event: January 16, 2026</p>
+                <p class="events-description">
+                    Small group conversations about the real challenges of
+                    building a design career. No pitches, no fluff—just honest
+                    dialogue with people who get it.
+                </p>
+                <a href="#" class="btn">Join our next event</a>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section id="values" class="values">
+            <div class="values-header animate-on-scroll fade-up">
+                <h2>What we value</h2>
+            </div>
+            <div class="values-list">
+                <!-- Value 1 -->
+                <div class="value-item">
+                    <div class="value-image animate-on-scroll fade-left">
+                        <img
+                            src="images/values-foundational-personal.png"
+                            alt="Person in conversation at a cafe"
+                        />
+                    </div>
+                    <div class="value-text animate-on-scroll fade-right">
+                        <h3>Foundational and personal</h3>
+                        <p>
+                            The design industry teaches solid fundamentals, but
+                            applies them as blanket advice that assumes everyone
+                            has the same advantages. That's not your reality. We
+                            teach what works, then help you apply it to YOUR
+                            situation—because the advice isn't wrong, it's just
+                            incomplete.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="value-item">
+                    <div class="value-image animate-on-scroll fade-right">
+                        <img
+                            src="images/values-honest-not-polished.png"
+                            alt="Warm coffee cup and potted plant"
+                        />
+                    </div>
+                    <div class="value-text animate-on-scroll fade-left">
+                        <h3>Honest, not polished</h3>
+                        <p>
+                            Real talk over toxic positivity. We don't gaslight
+                            you about your struggles or pretend systemic
+                            barriers don't exist. We acknowledge when things are
+                            hard—then help you find practical ways to navigate
+                            them anyway.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="value-item">
+                    <div class="value-image animate-on-scroll fade-left">
+                        <img
+                            src="images/values-community-first.png"
+                            alt="Hands nurturing a small plant"
+                        />
+                    </div>
+                    <div class="value-text animate-on-scroll fade-right">
+                        <h3>Community first</h3>
+                        <p>
+                            We build relationships before asking for money. Free
+                            sessions aren't sales pitches in disguise—they're
+                            genuine opportunities to connect and support each
+                            other. Some things are just about showing up for
+                            each other.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 4 -->
+                <div class="value-item">
+                    <div class="value-image animate-on-scroll fade-right">
+                        <img
+                            src="images/values-progress-perfection.png"
+                            alt="Cozy workspace with notebooks and coffee"
+                        />
+                    </div>
+                    <div class="value-text animate-on-scroll fade-left">
+                        <h3>Progress over perfection</h3>
+                        <p>
+                            Done is better than perfect. Your portfolio doesn't
+                            need to be flawless before you start applying. We
+                            celebrate small wins, normalize iteration, and
+                            encourage action—because that's how real careers are
+                            built.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coaching Section -->
+        <section id="coaching" class="coaching">
+            <div class="coaching-content animate-on-scroll scale-in">
+                <div class="coaching-icon">
+                    <img
+                        src="images/icon-coaching.svg"
+                        alt="1-1 Coaching"
+                        height="30"
+                    />
+                </div>
+                <h2>Sign up for 1-1 coaching with Andrew</h2>
+                <p>
+                    Get personalized guidance for your specific situation—your
+                    barriers, your advantages, your reality.
+                </p>
+                <a href="#" class="btn">Schedule a call</a>
+            </div>
+        </section>
+
+        <!-- Discord Section -->
+        <section id="discord" class="discord">
+            <div class="discord-content animate-on-scroll scale-in">
+                <div class="discord-icon">
+                    <img
+                        src="images/icon-discord.svg"
+                        alt="Discord"
+                        height="30"
+                    />
+                </div>
+                <h2>Join our Discord community</h2>
+                <p>
+                    Connect with other designers navigating non-traditional
+                    paths. Share wins, ask questions, and find your people.
+                </p>
+                <a href="#" class="btn">Join our Discord</a>
+            </div>
+        </section>
+
+        <!-- Founder Section -->
+        <section class="founder">
+            <div class="founder-header animate-on-scroll fade-up">
+                <h2>Andrew Tolentino</h2>
+                <p>Founder &amp; Coach</p>
+            </div>
+            <div class="founder-content">
+                <div class="founder-image animate-on-scroll fade-left">
+                    <img
+                        src="images/profile-andrew.png"
+                        alt="Andrew Tolentino, Founder of Honest Club"
+                    />
+                </div>
+                <div class="founder-bio stagger-children">
+                    <p class="animate-on-scroll fade-right">
+                        I'm Andrew, a product design manager based in San
+                        Francisco, California. I've spent my career navigating
+                        an industry that loves blanket advice—'just network,'
+                        'build a great portfolio,' 'be confident'—as if everyone
+                        starts from the same place.
+                    </p>
+                    <p class="animate-on-scroll fade-right">
+                        I didn't. I was raised by immigrant, middle-class
+                        parents who taught me never to be wrong and never to
+                        speak up. I had to unlearn a lot to get where I am. And
+                        along the way, I realized the advice I was getting
+                        wasn't wrong—it was just incomplete. It didn't account
+                        for my context.
+                    </p>
+                    <p class="animate-on-scroll fade-right">
+                        Honest Club exists for designers who feel like edge
+                        cases: career changers, self-taught folks, people who
+                        don't see themselves in the typical success stories. I
+                        teach fundamentals that actually work, then help you
+                        figure out how to apply them to your reality.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img
+                        src="images/honest-club-logo.svg"
+                        alt="Honest Club"
+                        height="24"
+                    />
+                    <p class="footer-copyright">© Honest Club 2026</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <p class="footer-column-title">Community</p>
+                        <a href="#events">Events</a>
+                        <a href="#coaching">Coaching</a>
+                        <a href="#discord">Discord</a>
+                        <a href="#values">Values</a>
+                    </div>
+                    <div class="footer-column">
+                        <p class="footer-column-title">Support</p>
+                        <a href="mailto:hello@honestclub.co">Email</a>
+                        <a href="#">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll Animation Script -->
+        <script>
+            // Intersection Observer for scroll animations
+            document.addEventListener("DOMContentLoaded", function () {
+                const animatedElements =
+                    document.querySelectorAll(".animate-on-scroll");
+
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "0px 0px -10% 0px",
+                    threshold: 0.1,
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            // Once animated, stop observing
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                animatedElements.forEach((el) => {
+                    observer.observe(el);
+                });
+
+                // Subtle parallax effect on hero image
+                const heroImage = document.querySelector(".hero-image img");
+                let ticking = false;
+
+                window.addEventListener("scroll", function () {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function () {
+                            const scrolled = window.pageYOffset;
+                            const heroSection = document.querySelector(".hero");
+                            const heroBottom =
+                                heroSection.offsetTop +
+                                heroSection.offsetHeight;
+
+                            if (scrolled < heroBottom + 600) {
+                                const translateY = scrolled * 0.2;
+                                heroImage.style.transform = `translateY(${translateY}px)`;
+                            }
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
