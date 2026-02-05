@@ -1,515 +1,633 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Honest Club – Career Coaching for Product Designers</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --forest: #0f2419;
-            --deep-green: #1a3a2e;
-            --sage: #7a9d8f;
-            --cream: #f5f0e8;
-            --warm-yellow: #e8d5a3;
-            --moss: #4a6b5d;
-        }
-
-        body {
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            background: linear-gradient(180deg, var(--forest) 0%, var(--deep-green) 100%);
-            color: var(--cream);
-            line-height: 1.7;
-            font-weight: 300;
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* Floating organic shapes */
-        .organic-shape {
-            position: fixed;
-            border-radius: 50%;
-            opacity: 0.04;
-            pointer-events: none;
-            filter: blur(40px);
-        }
-
-        .shape-1 {
-            width: 400px;
-            height: 400px;
-            background: var(--sage);
-            top: -100px;
-            right: -100px;
-            animation: float1 20s ease-in-out infinite;
-        }
-
-        .shape-2 {
-            width: 300px;
-            height: 300px;
-            background: var(--warm-yellow);
-            bottom: 10%;
-            left: -80px;
-            animation: float2 25s ease-in-out infinite;
-        }
-
-        .shape-3 {
-            width: 200px;
-            height: 200px;
-            background: var(--sage);
-            top: 50%;
-            right: 10%;
-            animation: float3 18s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-30px, 40px) scale(1.1); }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(40px, -30px) scale(1.15); }
-        }
-
-        @keyframes float3 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        /* Subtle grain texture */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.03;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 100px 24px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Wordmark */
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--sage), var(--warm-yellow));
-            color: var(--forest);
-            padding: 10px 28px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 500;
-            text-transform: lowercase;
-            letter-spacing: 1px;
-            margin-bottom: 80px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards, glow 3s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(122, 157, 143, 0.3); }
-            50% { box-shadow: 0 0 35px rgba(122, 157, 143, 0.5); }
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .intro {
-            margin-bottom: 64px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 0.3s forwards;
-        }
-
-        .wave {
-            display: inline-block;
-            animation: wave 2s ease-in-out infinite;
-            transform-origin: 70% 70%;
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg); }
-            10%, 30% { transform: rotate(14deg); }
-            20% { transform: rotate(-8deg); }
-            40%, 100% { transform: rotate(0deg); }
-        }
-
-        h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 56px;
-            font-weight: 400;
-            color: var(--cream);
-            line-height: 1.2;
-            letter-spacing: -1px;
-            margin-bottom: 24px;
-        }
-
-        .byline {
-            font-size: 20px;
-            color: rgba(245, 240, 232, 0.7);
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .byline .wave {
-            font-size: 24px;
-        }
-
-        .main-content {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 80px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 0.5s forwards;
-        }
-
-        .main-content p {
-            margin-bottom: 28px;
-            color: rgba(245, 240, 232, 0.9);
-        }
-
-        .main-content a {
-            color: var(--warm-yellow);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(232, 213, 163, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .main-content a:hover {
-            border-bottom-color: var(--warm-yellow);
-        }
-
-        .main-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight {
-            color: var(--warm-yellow);
-            font-weight: 400;
-            position: relative;
-            padding: 0 2px;
-        }
-
-        .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--warm-yellow);
-            opacity: 0.2;
-            z-index: -1;
-        }
-
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(122, 157, 143, 0.3), transparent);
-            margin: 64px 0;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 0.7s forwards;
-        }
-
-        .meetup-section {
-            margin-bottom: 64px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 0.9s forwards;
-        }
-
-        .meetup-section h2 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--cream);
-            margin-bottom: 16px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .meetup-section h2::after {
-            content: '🌿';
-            margin-left: 8px;
-            font-size: 16px;
-            animation: sway 3s ease-in-out infinite;
-        }
-
-        @keyframes sway {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
-
-        .meetup-card {
-            display: block;
-            text-decoration: none;
-            background: linear-gradient(135deg, rgba(122, 157, 143, 0.1) 0%, rgba(232, 213, 163, 0.05) 100%);
-            border: 1px solid rgba(122, 157, 143, 0.3);
-            border-radius: 24px;
-            padding: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .meetup-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, rgba(122, 157, 143, 0.3), rgba(232, 213, 163, 0.2));
-            border-radius: 24px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .meetup-card:hover {
-            transform: translateY(-4px);
-            border-color: transparent;
-            box-shadow: 0 8px 32px rgba(122, 157, 143, 0.2);
-        }
-
-        .meetup-card:hover::before {
-            opacity: 1;
-        }
-
-        .meetup-title {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--cream);
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .meetup-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .meetup-item {
-            background: rgba(122, 157, 143, 0.15);
-            border-radius: 12px;
-            padding: 14px 16px;
-        }
-
-        .meetup-item-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--sage);
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-
-        .meetup-item-value {
-            font-size: 14px;
-            color: var(--cream);
-            line-height: 1.5;
-        }
-
-        .meetup-cta {
-            margin-top: 16px;
-            display: inline-block;
-            padding: 10px 24px;
-            background: var(--cream);
-            color: var(--forest);
-            text-decoration: none;
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .meetup-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(122, 157, 143, 0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .meetup-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(122, 157, 143, 0.3);
-        }
-
-        .meetup-cta:hover::before {
-            left: 100%;
-        }
-
-        .footer {
-            font-size: 16px;
-            color: rgba(245, 240, 232, 0.6);
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 1.1s forwards;
-            text-align: center;
-        }
-
-        .footer a {
-            color: var(--warm-yellow);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(232, 213, 163, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .footer a:hover {
-            border-bottom-color: var(--warm-yellow);
-            color: var(--warm-yellow);
-        }
-
-        .copyright {
-            margin-top: 32px;
-            font-size: 14px;
-            color: rgba(245, 240, 232, 0.5);
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 60px 20px;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Honest Club – Career Coaching for Product Designers</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://use.typekit.net/cnj2ncy.css" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
+            :root {
+                --forest: #0f2419;
+                --deep-green: #1a3a2e;
+                --sage: #7a9d8f;
+                --cream: #f5f0e8;
+                --warm-yellow: #e8d5a3;
+                --moss: #4a6b5d;
+            }
+
+            body {
+                font-family:
+                    "DM Sans",
+                    -apple-system,
+                    sans-serif;
+                background: linear-gradient(
+                    180deg,
+                    var(--forest) 0%,
+                    var(--deep-green) 100%
+                );
+                color: var(--cream);
+                line-height: 1.7;
+                font-weight: 300;
+                -webkit-font-smoothing: antialiased;
+                position: relative;
+                overflow-x: hidden;
+                min-height: 100vh;
+            }
+
+            /* Floating organic shapes */
+            .organic-shape {
+                position: fixed;
+                border-radius: 50%;
+                opacity: 0.04;
+                pointer-events: none;
+                filter: blur(40px);
+            }
+
+            .shape-1 {
+                width: 400px;
+                height: 400px;
+                background: var(--sage);
+                top: -100px;
+                right: -100px;
+                animation: float1 20s ease-in-out infinite;
+            }
+
+            .shape-2 {
+                width: 300px;
+                height: 300px;
+                background: var(--warm-yellow);
+                bottom: 10%;
+                left: -80px;
+                animation: float2 25s ease-in-out infinite;
+            }
+
+            .shape-3 {
+                width: 200px;
+                height: 200px;
+                background: var(--sage);
+                top: 50%;
+                right: 10%;
+                animation: float3 18s ease-in-out infinite;
+            }
+
+            @keyframes float1 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                50% {
+                    transform: translate(-30px, 40px) scale(1.1);
+                }
+            }
+
+            @keyframes float2 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                50% {
+                    transform: translate(40px, -30px) scale(1.15);
+                }
+            }
+
+            @keyframes float3 {
+                0%,
+                100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                50% {
+                    transform: translate(-20px, 20px) scale(0.9);
+                }
+            }
+
+            /* Subtle grain texture */
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.03;
+                pointer-events: none;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            }
+
+            .container {
+                max-width: 720px;
+                margin: 0 auto;
+                padding: 100px 24px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Wordmark */
             .badge {
-                margin-bottom: 60px;
-                font-size: 15px;
-                padding: 9px 24px;
+                display: inline-block;
+                background: linear-gradient(
+                    135deg,
+                    var(--sage),
+                    var(--warm-yellow)
+                );
+                color: var(--forest);
+                padding: 10px 28px;
+                border-radius: 30px;
+                font-size: 16px;
+                font-weight: 500;
+                text-transform: lowercase;
+                letter-spacing: 1px;
+                margin-bottom: 80px;
+                opacity: 0;
+                animation:
+                    fadeIn 0.8s ease-out forwards,
+                    glow 3s ease-in-out infinite;
+            }
+
+            @keyframes glow {
+                0%,
+                100% {
+                    box-shadow: 0 0 20px rgba(122, 157, 143, 0.3);
+                }
+                50% {
+                    box-shadow: 0 0 35px rgba(122, 157, 143, 0.5);
+                }
+            }
+
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .intro {
+                margin-bottom: 64px;
+                opacity: 0;
+                animation: fadeIn 0.8s ease-out 0.3s forwards;
+            }
+
+            .wave {
+                display: inline-block;
+                animation: wave 2s ease-in-out infinite;
+                transform-origin: 70% 70%;
+            }
+
+            @keyframes wave {
+                0%,
+                100% {
+                    transform: rotate(0deg);
+                }
+                10%,
+                30% {
+                    transform: rotate(14deg);
+                }
+                20% {
+                    transform: rotate(-8deg);
+                }
+                40%,
+                100% {
+                    transform: rotate(0deg);
+                }
             }
 
             h1 {
-                font-size: 36px;
-                letter-spacing: -0.5px;
-                margin-bottom: 20px;
+                font-family: "new-spirit", Georgia, serif;
+                font-size: 56px;
+                font-weight: 400;
+                color: var(--cream);
+                line-height: 1.2;
+                letter-spacing: -1px;
+                margin-bottom: 24px;
             }
 
             .byline {
-                font-size: 18px;
+                font-size: 20px;
+                color: rgba(245, 240, 232, 0.7);
+                font-weight: 300;
+                line-height: 1.6;
             }
 
             .byline .wave {
-                font-size: 20px;
+                font-size: 24px;
             }
 
             .main-content {
-                font-size: 17px;
+                font-size: 18px;
+                line-height: 1.8;
+                margin-bottom: 80px;
+                opacity: 0;
+                animation: fadeIn 0.8s ease-out 0.5s forwards;
+            }
+
+            .main-content p {
+                margin-bottom: 28px;
+                color: rgba(245, 240, 232, 0.9);
+            }
+
+            .main-content a {
+                color: var(--warm-yellow);
+                text-decoration: none;
+                border-bottom: 1px solid rgba(232, 213, 163, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .main-content a:hover {
+                border-bottom-color: var(--warm-yellow);
+            }
+
+            .main-content p:last-child {
+                margin-bottom: 0;
+            }
+
+            .highlight {
+                color: var(--warm-yellow);
+                font-weight: 400;
+                position: relative;
+                padding: 0 2px;
+            }
+
+            .highlight::after {
+                content: "";
+                position: absolute;
+                bottom: 2px;
+                left: 0;
+                width: 100%;
+                height: 6px;
+                background: var(--warm-yellow);
+                opacity: 0.2;
+                z-index: -1;
+            }
+
+            .divider {
+                height: 1px;
+                background: linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(122, 157, 143, 0.3),
+                    transparent
+                );
+                margin: 64px 0;
+                opacity: 0;
+                animation: fadeIn 0.8s ease-out 0.7s forwards;
+            }
+
+            .meetup-section {
+                margin-bottom: 64px;
+                opacity: 0;
+                animation: fadeIn 0.8s ease-out 0.9s forwards;
             }
 
             .meetup-section h2 {
-                font-size: 18px;
+                font-family: "new-spirit", Georgia, serif;
+                font-size: 20px;
+                font-weight: 400;
+                color: var(--cream);
+                margin-bottom: 16px;
+                position: relative;
+                display: inline-block;
+            }
+
+            .meetup-section h2::after {
+                content: "🌿";
+                margin-left: 8px;
+                font-size: 16px;
+                animation: sway 3s ease-in-out infinite;
+            }
+
+            @keyframes sway {
+                0%,
+                100% {
+                    transform: rotate(-5deg);
+                }
+                50% {
+                    transform: rotate(5deg);
+                }
             }
 
             .meetup-card {
-                padding: 18px 20px;
+                display: block;
+                text-decoration: none;
+                background: linear-gradient(
+                    135deg,
+                    rgba(122, 157, 143, 0.1) 0%,
+                    rgba(232, 213, 163, 0.05) 100%
+                );
+                border: 1px solid rgba(122, 157, 143, 0.3);
+                border-radius: 24px;
+                padding: 24px;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+            }
+
+            .meetup-card::before {
+                content: "";
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(122, 157, 143, 0.3),
+                    rgba(232, 213, 163, 0.2)
+                );
+                border-radius: 24px;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                z-index: -1;
+            }
+
+            .meetup-card:hover {
+                transform: translateY(-4px);
+                border-color: transparent;
+                box-shadow: 0 8px 32px rgba(122, 157, 143, 0.2);
+            }
+
+            .meetup-card:hover::before {
+                opacity: 1;
+            }
+
+            .meetup-title {
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--cream);
+                margin-bottom: 20px;
+                line-height: 1.4;
             }
 
             .meetup-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 12px;
+                margin-bottom: 20px;
             }
 
-            .organic-shape {
-                display: none;
+            .meetup-item {
+                background: rgba(122, 157, 143, 0.15);
+                border-radius: 12px;
+                padding: 14px 16px;
             }
-        }
-    </style>
-</head>
-<body>
-    <!-- Floating organic shapes -->
-    <div class="organic-shape shape-1"></div>
-    <div class="organic-shape shape-2"></div>
-    <div class="organic-shape shape-3"></div>
 
-    <div class="container">
-        <!-- Badge -->
-        <div class="badge">Honest Club</div>
+            .meetup-item-label {
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--sage);
+                margin-bottom: 6px;
+                font-weight: 500;
+            }
 
-        <!-- Introduction -->
-        <div class="intro">
-            <h1>Honest career coaching for product designers.</h1>
-            <p class="byline"><span class="wave">👋</span> I'm Andrew, a product design manager and career coach.</p>
-        </div>
+            .meetup-item-value {
+                font-size: 14px;
+                color: var(--cream);
+                line-height: 1.5;
+            }
 
-        <!-- Next Meetup Section -->
-        <div class="meetup-section">
-            <h2>Next Community Gathering</h2>
-            <a href="mailto:hello@honestclub.co" class="meetup-card">
-                <div class="meetup-title">Portfolio Review & Career Navigation</div>
-                <div class="meetup-grid">
-                    <div class="meetup-item">
-                        <div class="meetup-item-label">When</div>
-                        <div class="meetup-item-value">Saturday, February 15, 2026<br>10:00 AM</div>
+            .meetup-cta {
+                margin-top: 16px;
+                display: inline-block;
+                padding: 10px 24px;
+                background: var(--cream);
+                color: var(--forest);
+                text-decoration: none;
+                border-radius: 20px;
+                font-weight: 500;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .meetup-cta::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(122, 157, 143, 0.4),
+                    transparent
+                );
+                transition: left 0.5s ease;
+            }
+
+            .meetup-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(122, 157, 143, 0.3);
+            }
+
+            .meetup-cta:hover::before {
+                left: 100%;
+            }
+
+            .footer {
+                font-size: 16px;
+                color: rgba(245, 240, 232, 0.6);
+                opacity: 0;
+                animation: fadeIn 0.8s ease-out 1.1s forwards;
+                text-align: center;
+            }
+
+            .footer a {
+                color: var(--warm-yellow);
+                text-decoration: none;
+                border-bottom: 1px solid rgba(232, 213, 163, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .footer a:hover {
+                border-bottom-color: var(--warm-yellow);
+                color: var(--warm-yellow);
+            }
+
+            .copyright {
+                margin-top: 32px;
+                font-size: 14px;
+                color: rgba(245, 240, 232, 0.5);
+            }
+
+            @media (max-width: 640px) {
+                .container {
+                    padding: 60px 20px;
+                }
+
+                .badge {
+                    margin-bottom: 60px;
+                    font-size: 15px;
+                    padding: 9px 24px;
+                }
+
+                h1 {
+                    font-size: 36px;
+                    letter-spacing: -0.5px;
+                    margin-bottom: 20px;
+                }
+
+                .byline {
+                    font-size: 18px;
+                }
+
+                .byline .wave {
+                    font-size: 20px;
+                }
+
+                .main-content {
+                    font-size: 17px;
+                }
+
+                .meetup-section h2 {
+                    font-size: 18px;
+                }
+
+                .meetup-card {
+                    padding: 18px 20px;
+                }
+
+                .meetup-grid {
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                }
+
+                .organic-shape {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Floating organic shapes -->
+        <div class="organic-shape shape-1"></div>
+        <div class="organic-shape shape-2"></div>
+        <div class="organic-shape shape-3"></div>
+
+        <div class="container">
+            <!-- Badge -->
+            <div class="badge">Honest Club</div>
+
+            <!-- Introduction -->
+            <div class="intro">
+                <h1>Honest career coaching for product designers.</h1>
+                <p class="byline">
+                    <span class="wave">👋</span> I'm Andrew, a product design
+                    manager and career coach.
+                </p>
+            </div>
+
+            <!-- Next Meetup Section -->
+            <div class="meetup-section">
+                <h2>Next Community Gathering</h2>
+                <a href="mailto:hello@honestclub.co" class="meetup-card">
+                    <div class="meetup-title">
+                        Portfolio Review & Career Navigation
                     </div>
-                    <div class="meetup-item">
-                        <div class="meetup-item-label">Where</div>
-                        <div class="meetup-item-value">Réveille Coffee Co.<br>4076 18th Street, SF</div>
+                    <div class="meetup-grid">
+                        <div class="meetup-item">
+                            <div class="meetup-item-label">When</div>
+                            <div class="meetup-item-value">
+                                Saturday, February 15, 2026<br />10:00 AM
+                            </div>
+                        </div>
+                        <div class="meetup-item">
+                            <div class="meetup-item-label">Where</div>
+                            <div class="meetup-item-value">
+                                Réveille Coffee Co.<br />4076 18th Street, SF
+                            </div>
+                        </div>
+                        <div class="meetup-item">
+                            <div class="meetup-item-label">Cost</div>
+                            <div class="meetup-item-value">
+                                Free<br />Just grab a coffee
+                            </div>
+                        </div>
                     </div>
-                    <div class="meetup-item">
-                        <div class="meetup-item-label">Cost</div>
-                        <div class="meetup-item-value">Free<br>Just grab a coffee</div>
-                    </div>
-                </div>
-                <span class="meetup-cta">Save Your Spot →</span>
-            </a>
+                    <span class="meetup-cta">Save Your Spot →</span>
+                </a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <p>
+                    I help product designers build careers on their own terms
+                    when generic advice doesn't account for their context—<span
+                        class="highlight"
+                        >career changers, self-taught designers, and anyone
+                        navigating barriers that mainstream guidance
+                        ignores.</span
+                    >
+                </p>
+
+                <p>
+                    The design industry teaches solid fundamentals, but applies
+                    blanket advice that assumes everyone has the same starting
+                    point. That's not your reality.
+                </p>
+
+                <p>
+                    I bring
+                    <span class="highlight">Foundation + Context</span>—teaching
+                    career essentials while helping you adapt them to YOUR
+                    situation. Because knowing the 'what' isn't enough without
+                    understanding the 'how' for your context.
+                </p>
+
+                <p>
+                    Before coaching, I built and led design teams as a product
+                    design manager. I'm also an immigrant kid who was taught
+                    never to speak up, had to change myself to fit industry
+                    expectations, and realized that design Twitter's advice was
+                    "shrouded in privilege."
+                </p>
+
+                <p>
+                    I also run
+                    <a href="https://caketherapy.com"
+                        ><span class="highlight">Cake Therapy</span></a
+                    >, a home bakery, and offer creative coaching sessions where
+                    breakthrough conversations happen alongside cake
+                    decorating—because coaching doesn't have to feel formal or
+                    intimidating.
+                </p>
+
+                <p>
+                    If you're looking for more personalized support, I also
+                    offer <span class="highlight">1-on-1 coaching</span> for
+                    portfolio reviews, interview prep, and career navigation.
+                    <a href="mailto:hello@honestclub.co">Reach out</a> if you'd
+                    like to chat.
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>
+                    Want to work together or curious about joining the next
+                    gathering?<br />
+                    Reach out:
+                    <a href="mailto:hello@honestclub.co">hello@honestclub.co</a>
+                </p>
+                <p class="copyright">
+                    © 2025 Honest Club. All rights reserved.
+                </p>
+            </div>
         </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <p>
-                I help product designers build careers on their own terms when generic advice doesn't account for their context—<span class="highlight">career changers, self-taught designers, and anyone navigating barriers that mainstream guidance ignores.</span>
-            </p>
-
-            <p>
-                The design industry teaches solid fundamentals, but applies blanket advice that assumes everyone has the same starting point. That's not your reality.
-            </p>
-
-            <p>
-                I bring <span class="highlight">Foundation + Context</span>—teaching career essentials while helping you adapt them to YOUR situation. Because knowing the 'what' isn't enough without understanding the 'how' for your context.
-            </p>
-
-            <p>
-                Before coaching, I built and led design teams as a product design manager. I'm also an immigrant kid who was taught never to speak up, had to change myself to fit industry expectations, and realized that design Twitter's advice was "shrouded in privilege."
-            </p>
-
-            <p>
-                I also run <a href="https://caketherapy.com"><span class="highlight">Cake Therapy</span></a>, a home bakery, and offer creative coaching sessions where breakthrough conversations happen alongside cake decorating—because coaching doesn't have to feel formal or intimidating.
-            </p>
-
-            <p>
-                If you're looking for more personalized support, I also offer <span class="highlight">1-on-1 coaching</span> for portfolio reviews, interview prep, and career navigation. <a href="mailto:hello@honestclub.co">Reach out</a> if you'd like to chat.
-            </p>
-        </div>
-
-        <!-- Divider -->
-        <div class="divider"></div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>Want to work together or curious about joining the next gathering?<br>
-            Reach out: <a href="mailto:hello@honestclub.co">hello@honestclub.co</a></p>
-            <p class="copyright">© 2025 Honest Club. All rights reserved.</p>
-        </div>
-    </div>
-</body>
+    </body>
 </html>
