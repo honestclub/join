@@ -85,6 +85,20 @@
             /* Section background variants – simple solids */
             .bg-hero {
                 background: var(--forest);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .bg-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url("images/000038820035.jpeg");
+                background-size: cover;
+                background-position: center;
+                opacity: 0.3;
+                pointer-events: none;
+                z-index: 0;
             }
 
             .bg-alt {
@@ -101,7 +115,7 @@
 
             /* Logo bar */
             .logo-bar {
-                padding: 72px 24px 0;
+                padding: 120px 24px 0;
                 max-width: 1200px;
                 margin: 0 auto;
                 opacity: 0;
@@ -324,7 +338,7 @@
 
             .value-image {
                 width: 100%;
-                aspect-ratio: 5 / 4;
+                aspect-ratio: 3 / 2;
                 object-fit: cover;
                 border-radius: 20px;
                 border: 1px solid rgba(122, 157, 143, 0.25);
@@ -567,9 +581,11 @@
         </style>
     </head>
     <body>
-        <!-- Logo -->
-        <div class="logo-bar">
-            <svg
+        <!-- HERO -->
+        <section class="section-band bg-hero">
+            <!-- Logo -->
+            <div class="logo-bar">
+                <svg
                 width="200"
                 height="28"
                 viewBox="0 0 200 28"
@@ -616,16 +632,15 @@
                     d="M191.703 9.0801C196.586 9.0801 200 12.6977 200 18.1602C200 24.0568 195.778 27.8191 190.748 27.8191C187.774 27.8191 186.269 26.6615 185.168 26.6615C184.103 26.6615 183.148 27.7106 182.451 27.7106C181.937 27.7106 181.643 27.3127 181.643 26.77V5.31783C181.643 3.07494 178.816 4.30491 178.816 2.89406C178.816 2.31525 179.44 1.88114 181.46 0.976744C183.295 0.108528 183.773 0 184.213 0C184.727 0 184.947 0.470285 184.947 0.940569V12.553C186.343 10.5633 188.619 9.0801 191.703 9.0801ZM190.748 25.9018C193.942 25.9018 196.512 23.7674 196.512 19.3178C196.512 14.9406 194.052 11.5762 190.454 11.5762C187.628 11.5762 184.947 13.6382 184.947 17.4005V20.0413C184.947 23.6589 187.407 25.9018 190.748 25.9018Z"
                     fill="#f5f0e8"
                 />
-            </svg>
-        </div>
+                </svg>
+            </div>
 
-        <!-- HERO -->
-        <section class="section-band bg-hero">
             <div class="container hero">
                 <h1>Honest career coaching for people ready for what's next.</h1>
                 <p class="hero-sub">
-                    <span class="wave">👋</span> Hey, I'm Andrew — a product
-                    design and leadership coach. I help designers and leaders
+                    <span class="wave">👋</span> Hey, I'm Andrew — a
+                    professional life coach and product design leader. I
+                    help designers and leaders
                     <span class="highlight">grow from the inside out</span>.
                 </p>
                 <a
@@ -646,7 +661,7 @@
             <div class="container">
                 <div class="section-eyebrow">Who I coach</div>
                 <h2 class="section-title">
-                    People ready for honest growth.
+                    People ready for honest growth
                 </h2>
 
                 <div class="grid-3">
@@ -707,7 +722,7 @@
             <div class="container">
                 <div class="section-eyebrow">What I believe</div>
                 <h2 class="section-title">
-                    How I show up.
+                    How I show up for you
                 </h2>
 
                 <div class="value-row">
@@ -718,7 +733,7 @@
                     />
                     <div class="value-text">
                         <div class="value-number">01 — Honesty</div>
-                        <h3>Real talk over polished talk.</h3>
+                        <h3>Real talk over polished talk</h3>
                         <p>
                             We tell the truth about what's working, what
                             isn't, and what you actually want.
@@ -734,7 +749,7 @@
                     />
                     <div class="value-text">
                         <div class="value-number">02 — Listening</div>
-                        <h3>I listen first, then I support.</h3>
+                        <h3>I listen first, then I support</h3>
                         <p>
                             I slow down to hear what you're saying — and
                             what you're not. Then I walk alongside you.
@@ -750,7 +765,7 @@
                     />
                     <div class="value-text">
                         <div class="value-number">03 — Inner work</div>
-                        <h3>The outside follows the inside.</h3>
+                        <h3>The outside follows the inside</h3>
                         <p>
                             Roles and titles shift when something inside
                             shifts first. We start there.
@@ -766,7 +781,7 @@
                     />
                     <div class="value-text">
                         <div class="value-number">04 — Champion</div>
-                        <h3>I'm in your corner.</h3>
+                        <h3>I'm in your corner</h3>
                         <p>
                             I root for you, push back when it helps, and
                             remind you who you are.
@@ -780,7 +795,7 @@
         <section class="section-band bg-alt">
             <div class="container">
                 <div class="section-eyebrow">About me</div>
-                <h2 class="section-title">Hey, I'm Andrew.</h2>
+                <h2 class="section-title">Hey, I'm Andrew</h2>
 
                 <div class="about-grid">
                     <img
@@ -795,22 +810,26 @@
                             people grow into the careers they actually want.
                         </p>
                         <p>
-                            I'm a Co-Active Practitioner (CAP) — a coaching
-                            method that's curious, direct, and human. It
-                            fits how I already work.
+                            I'm a
+                            <a href="https://coactive.com/">Co-Active</a>
+                            Practitioner (CAP) — a coaching method that's
+                            curious, direct, and human. It fits how I
+                            already work.
                         </p>
                         <p>
-                            I also run
-                            <a href="https://caketherapy.com">Cake Therapy</a>,
-                            a home bakery where I host creative coaching
-                            sessions. Real conversations don't have to
-                            happen across a desk.
+                            Outside of coaching, I'm a deeply creative
+                            person. I run
+                            <a href="https://caketherapy.com">Cake Therapy</a>
+                            — my home bakery — and spend time throwing
+                            pottery and shooting film photography. Making
+                            things keeps me curious, and it shows up in how
+                            I coach.
                         </p>
 
                         <ul class="quick-facts">
                             <li>Co-Active Practitioner (CAP)</li>
-                            <li>10+ years in product design</li>
-                            <li>Former design manager &amp; mentor</li>
+                            <li>10+ years in design leadership</li>
+                            <li>Baker, potter &amp; photographer</li>
                             <li>Based in San Francisco</li>
                         </ul>
                     </div>
