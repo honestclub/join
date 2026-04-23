@@ -429,14 +429,19 @@
             }
 
             .ideal-card {
-                background: rgba(var(--text-rgb), 0.04);
-                border: 1px solid rgba(var(--accent-rgb), 0.22);
+                background: #fdfaf2;
+                border: 1px solid rgba(var(--accent-rgb), 0.2);
                 border-radius: 20px;
                 overflow: hidden;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
                 transition:
                     border-color 0.3s ease,
                     transform 0.3s ease,
-                    background-color 0.5s ease;
+                    box-shadow 0.3s ease;
+            }
+
+            .ideal-card:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
             }
 
             .ideal-card:hover {
