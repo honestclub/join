@@ -473,20 +473,16 @@
             }
 
             /* ---------- VALUES ---------- */
-            .value-row {
+            .values-grid {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 56px;
-                align-items: center;
-                margin-bottom: 72px;
+                gap: 72px 48px;
             }
 
-            .value-row:last-child {
-                margin-bottom: 0;
-            }
-
-            .value-row.reverse .value-image {
-                order: 2;
+            .value-row {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
             }
 
             .value-image {
@@ -674,14 +670,9 @@
                     gap: 20px;
                 }
 
-                .value-row {
+                .values-grid {
                     grid-template-columns: 1fr;
-                    gap: 28px;
-                    margin-bottom: 56px;
-                }
-
-                .value-row.reverse .value-image {
-                    order: 0;
+                    gap: 56px;
                 }
 
                 .about-grid {
@@ -902,75 +893,78 @@
                     How I show up for you
                 </h2>
 
-                <div class="value-row reveal">
-                    <img
-                        src="images/000038820035.jpeg"
-                        alt="Misty rolling hills"
-                        class="value-image"
-                        loading="lazy"
-                        decoding="async"
-                    />
-                    <div class="value-text">
-                        <div class="value-number">01 — Honesty</div>
-                        <h3>Real talk over polished talk</h3>
-                        <p>
-                            We tell the truth about what's working, what
-                            isn't, and what you actually want.
-                        </p>
+                <div class="values-grid reveal-stagger">
+                    <div class="value-row">
+                        <img
+                            src="images/000038820035.jpeg"
+                            alt="Misty rolling hills"
+                            class="value-image"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="value-text">
+                            <div class="value-number">01 — Honesty</div>
+                            <h3>Real talk over polished talk</h3>
+                            <p>
+                                We tell the truth about what's working,
+                                what isn't, and what you actually want.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="value-row reverse reveal">
-                    <img
-                        src="images/000003340032.jpeg"
-                        alt="A quiet path leading to the ocean"
-                        class="value-image"
-                        loading="lazy"
-                        decoding="async"
-                    />
-                    <div class="value-text">
-                        <div class="value-number">02 — Listening</div>
-                        <h3>I listen first, then I support</h3>
-                        <p>
-                            I slow down to hear what you're saying — and
-                            what you're not. Then I walk alongside you.
-                        </p>
+                    <div class="value-row">
+                        <img
+                            src="images/000003340032.jpeg"
+                            alt="A quiet path leading to the ocean"
+                            class="value-image"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="value-text">
+                            <div class="value-number">02 — Listening</div>
+                            <h3>I listen first, then I support</h3>
+                            <p>
+                                I slow down to hear what you're saying —
+                                and what you're not. Then I walk alongside
+                                you.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="value-row reveal">
-                    <img
-                        src="images/000003340016.jpeg"
-                        alt="Tall redwood trees"
-                        class="value-image"
-                        loading="lazy"
-                        decoding="async"
-                    />
-                    <div class="value-text">
-                        <div class="value-number">03 — Inner work</div>
-                        <h3>The outside follows the inside</h3>
-                        <p>
-                            Roles and titles shift when something inside
-                            shifts first. We start there.
-                        </p>
+                    <div class="value-row">
+                        <img
+                            src="images/000003340016.jpeg"
+                            alt="Tall redwood trees"
+                            class="value-image"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="value-text">
+                            <div class="value-number">03 — Inner work</div>
+                            <h3>The outside follows the inside</h3>
+                            <p>
+                                Roles and titles shift when something
+                                inside shifts first. We start there.
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="value-row reverse reveal">
-                    <img
-                        src="images/000038800029.jpeg"
-                        alt="Soft green Japanese maple leaves"
-                        class="value-image"
-                        loading="lazy"
-                        decoding="async"
-                    />
-                    <div class="value-text">
-                        <div class="value-number">04 — Champion</div>
-                        <h3>I'm in your corner</h3>
-                        <p>
-                            I root for you, push back when it helps, and
-                            remind you who you are.
-                        </p>
+                    <div class="value-row">
+                        <img
+                            src="images/000038800029.jpeg"
+                            alt="Soft green Japanese maple leaves"
+                            class="value-image"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="value-text">
+                            <div class="value-number">04 — Champion</div>
+                            <h3>I'm in your corner</h3>
+                            <p>
+                                I root for you, push back when it helps,
+                                and remind you who you are.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
