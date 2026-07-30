@@ -54,9 +54,8 @@
             /* Light theme: default for whole page */
             :root {
                 --bg-main: #f5f1e8;
-                --bg-alt: #e6ebe3;
-                --bg-cta: #c8d2c5;
-                --bg-footer: #a8b5a5;
+                --bg-alt: #c8d2c5;
+                --bg-footer: #c8d2c5;
 
                 --text: #0f2419;
                 --text-rgb: 15, 36, 25;
@@ -80,16 +79,16 @@
                 --bg-main: #0f2419;
                 --bg-footer: #08160e;
 
-                --text: #f5f0e8;
-                --text-rgb: 245, 240, 232;
+                --text: #f5f1e8;
+                --text-rgb: 245, 241, 232;
 
-                --accent: #7a9d8f;
-                --accent-rgb: 122, 157, 143;
+                --accent: #4a6b5d;
+                --accent-rgb: 74, 107, 93;
 
                 --highlight: #e8d5a3;
                 --highlight-rgb: 232, 213, 163;
 
-                --btn-bg: #f5f0e8;
+                --btn-bg: #f5f1e8;
                 --btn-text: #0f2419;
                 --btn-hover-bg: #e8d5a3;
 
@@ -197,8 +196,30 @@
                 background: var(--bg-main);
             }
 
+            /* CTA band: photo background with a forest tint to lift the
+               cream card */
             .bg-cta {
-                background: var(--bg-cta);
+                background: var(--bg-main);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .bg-cta::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url("images/web/cta-000038820037.jpg");
+                background-size: cover;
+                background-position: center;
+                z-index: 0;
+            }
+
+            .bg-cta::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(15, 36, 25, 0.45);
+                z-index: 1;
             }
 
             /* ---------- REVEAL ANIMATIONS ---------- */
@@ -496,7 +517,7 @@
             }
 
             .ideal-card {
-                background: #fdfaf2;
+                background: var(--bg-main);
                 border: 1px solid rgba(var(--accent-rgb), 0.2);
                 border-radius: 20px;
                 overflow: hidden;
@@ -691,7 +712,7 @@
                 content: "";
                 position: absolute;
                 left: 0;
-                top: 9px;
+                top: 6px;
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
