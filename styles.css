@@ -1174,8 +1174,13 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px 28px;
-    margin: 0 0 34px;
+    gap: 12px 24px;
+    /* The six links need more room than the 720px footer column, so the
+       row breaks out of it and re-centres. Capped to the viewport so it
+       still wraps on a phone. */
+    width: min(880px, calc(100vw - 48px));
+    margin: 0 0 34px 50%;
+    transform: translateX(-50%);
     padding: 0 0 30px;
     border-bottom: 1px solid rgba(var(--accent-rgb), 0.25);
 }
