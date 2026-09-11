@@ -1499,5 +1499,109 @@ h1 {
     font-size: 15px;
     line-height: 1.6;
     color: rgba(var(--text-rgb), 0.7);
+    /* Matches .page-intro so a note that runs past one line still reads
+       as a comfortable column rather than the full container width. */
+    max-width: 760px;
     transition: color 0.5s ease;
+}
+
+.hero-sessions {
+    --hero-image: url("images/web/hero-000038820036.jpg");
+}
+
+/* Inline links inside body copy, matching the footer's underline treatment.
+   The footer was the only place that needed one until Honest Sessions. */
+.package-note a {
+    color: var(--highlight);
+    text-decoration: underline;
+    text-decoration-color: rgba(var(--highlight-rgb), 0.45);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    transition:
+        color 0.3s ease,
+        text-decoration-color 0.3s ease;
+}
+
+.package-note a:hover {
+    text-decoration-color: var(--highlight);
+}
+
+/* ---------- HONEST SESSIONS SIGNUP ----------
+   The Kit embed ships its own styles, so this wrapper only gives it
+   room, a sage frame, and a matching input/button look where Kit's
+   markup lets us reach it. */
+.signup-embed {
+    margin: 0 auto 12px;
+    max-width: 480px;
+    text-align: left;
+}
+
+.signup-embed .formkit-form {
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    font-family: "DM Sans", -apple-system, sans-serif !important;
+}
+
+/* Kit's stylesheet pads the form for its own wide layouts, keyed off a
+   min-width attribute its script normally narrows. It does not narrow it
+   for a hand-pasted form, so clear the padding ourselves. */
+.signup-embed [data-style="clean"] {
+    padding: 0 !important;
+}
+
+/* Kit reserves a full line for its attribution; pull it in tight. */
+.signup-embed .formkit-powered-by-convertkit-container {
+    margin: 2px 0 0 !important;
+}
+
+.signup-embed .formkit-powered-by-convertkit {
+    height: 28px !important;
+    opacity: 0.6;
+}
+
+.signup-embed .formkit-input,
+.signup-embed input[type="email"],
+.signup-embed input[type="text"] {
+    font-family: inherit !important;
+    font-size: 16px !important; /* keeps iOS from zooming the page on focus */
+    border-radius: 10px !important;
+    border: 1px solid rgba(var(--accent-rgb), 0.45) !important;
+}
+
+.signup-embed .formkit-submit,
+.signup-embed button[type="submit"] {
+    font-family: inherit !important;
+    border-radius: 10px !important;
+    background-color: var(--btn-bg) !important;
+}
+
+.signup-embed .formkit-submit span,
+.signup-embed button[type="submit"] span {
+    color: var(--btn-text) !important;
+    font-weight: 500;
+}
+
+.signup-embed .formkit-submit:hover,
+.signup-embed button[type="submit"]:hover {
+    background-color: var(--btn-hover-bg) !important;
+}
+
+.signup-fallback {
+    font-size: 16px;
+    color: rgba(var(--text-rgb), 0.85);
+}
+
+/* The closing line, sitting under the form rather than above it. */
+.signup-note {
+    margin: 34px auto 0 !important;
+    font-size: 16px !important;
+    color: rgba(var(--text-rgb), 0.75) !important;
+    max-width: 440px !important;
+}
+
+@media (max-width: 640px) {
+    .signup-embed {
+        max-width: 100%;
+    }
 }
