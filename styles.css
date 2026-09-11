@@ -1500,6 +1500,10 @@ h1 {
     --hero-image: url("images/web/hero-000009890003.jpg");
 }
 
+.hero-story {
+    --hero-image: url("images/web/hero-000003310034.jpg");
+}
+
 /* ---------- IN-SECTION CTA ----------
    A booking prompt at the end of a content section, so the reader
    never has to scroll back to the hero or all the way to the footer
@@ -1653,5 +1657,97 @@ h1 {
 @media (max-width: 640px) {
     .signup-embed {
         max-width: 100%;
+    }
+}
+
+/* ---------- SUBPAGE: STORY (long-form prose) ----------
+   The story page runs much longer than the service pages, so it gets a
+   measured reading column rather than the 19px .page-intro lead, which
+   is built for a paragraph or two at a time. */
+.story-prose {
+    max-width: 760px;
+}
+
+.story-prose p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(var(--text-rgb), 0.85);
+    margin-bottom: 24px;
+    transition: color 0.5s ease;
+}
+
+.story-prose p:last-child {
+    margin-bottom: 0;
+}
+
+/* A closing note under a section's steps is an aside, not a caption, so
+   it gets the same air the steps have above them rather than butting
+   straight up against the last one. */
+.steps + .story-prose {
+    margin-top: 44px;
+}
+
+/* ---------- SUBPAGE: STATS ----------
+   A credibility row, not a chart: no series, no palette, just the page's
+   own ink. Numbers wear Gooper because the serif is this site's display
+   face, and proportional figures because tabular ones look loose at
+   display sizes. */
+.stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 980px;
+}
+
+.stat {
+    padding-top: 20px;
+    border-top: 1px solid rgba(var(--accent-rgb), 0.35);
+    transition: border-color 0.5s ease;
+}
+
+.stat-figure {
+    font-family: "Gooper", Georgia, serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--text);
+    transition: color 0.5s ease;
+}
+
+.stat-label {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(var(--text-rgb), 0.8);
+    transition: color 0.5s ease;
+}
+
+/* Portrait above the closing call to action, so the last thing on the
+   page is a face rather than another block of type. */
+.final-cta-photo {
+    display: block;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    transition: border-color 0.5s ease;
+}
+
+@media (max-width: 880px) {
+    .story-prose p {
+        font-size: 17px;
+        line-height: 1.75;
+    }
+
+    .stat-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 20px;
+    }
+
+    .stat-figure {
+        font-size: 40px;
     }
 }
