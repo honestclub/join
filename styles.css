@@ -1444,3 +1444,55 @@ h1 {
 .hero-companies {
     --hero-image: url("images/web/hero-000009890003.jpg");
 }
+
+/* ---------- IN-SECTION CTA ----------
+   A booking prompt at the end of a content section, so the reader
+   never has to scroll back to the hero or all the way to the footer
+   to act. Deliberately lighter than the final CTA card. */
+.section-cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    margin-top: 56px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(var(--accent-rgb), 0.22);
+}
+
+.section-cta p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(var(--text-rgb), 0.85);
+    margin: 0;
+    max-width: 46ch;
+    transition: color 0.5s ease;
+}
+
+.section-cta .btn-primary {
+    margin-left: auto;
+}
+
+@media (max-width: 880px) {
+    .section-cta {
+        margin-top: 40px;
+        padding-top: 28px;
+        gap: 20px;
+    }
+
+    .section-cta p {
+        font-size: 16px;
+    }
+
+    .section-cta .btn-primary {
+        margin-left: 0;
+    }
+}
+
+/* Answers the question the cards provoke, right where it lands. */
+.package-note {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(var(--text-rgb), 0.7);
+    transition: color 0.5s ease;
+}
