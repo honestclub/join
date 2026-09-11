@@ -810,6 +810,16 @@ h1 {
         padding: 64px 20px;
     }
 
+    .offer-group {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .package-grid + .offer-group {
+        margin-top: 40px;
+        padding-top: 28px;
+    }
+
     .logo-bar {
         padding: 52px 20px 0;
     }
@@ -1096,6 +1106,28 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+}
+/* Labels the two halves of the offers: the one-on-one packages, then the
+   group and company work. The hairline only appears between the groups,
+   never above the first one. */
+.offer-group {
+    font-family: "Gooper", Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: -0.2px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.package-grid + .offer-group {
+    margin-top: 52px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(var(--accent-rgb), 0.22);
+    transition:
+        color 0.5s ease,
+        border-color 0.5s ease;
 }
 
 .package-grid-3 {
