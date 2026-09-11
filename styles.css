@@ -742,6 +742,20 @@ h1 {
     text-decoration-color: var(--highlight);
 }
 
+/* The story link after the quick facts is a standalone pointer, styled
+   like the card links rather than the inline prose links above it. */
+.about-text .about-story-link {
+    margin-top: 28px;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.about-text .about-story-link:hover {
+    color: var(--text);
+    border-color: rgba(var(--accent-rgb), 0.8);
+    gap: 12px;
+}
+
 .quick-facts {
     list-style: none;
     margin: 28px 0 4px;
