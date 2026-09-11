@@ -1,2 +1,14 @@
+# macOS
 .DS_Store
-.DS_Store
+**/.DS_Store
+
+# Editor / tooling
+.claude/settings.local.json
+
+# Source photography and unused brand assets.
+# These stay on disk but are not tracked: the site only loads the
+# optimized exports in images/web/, plus the logo. Re-add any file
+# by adding an exception below.
+/images/*
+!/images/web/
+!/images/honest-club-logo.svg

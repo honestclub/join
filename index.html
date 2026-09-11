@@ -3,17 +3,25 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Honest Club: Coaching for People Ready to Grow</title>
+        <title>Life &amp; Career Coach in San Francisco | Honest Club</title>
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <link rel="apple-touch-icon" href="favicon.svg" />
         <meta name="theme-color" content="#0f2419" />
         <meta
             name="description"
-            content="Honest coaching for people ready for what's next. Andrew is a professional life and career coach helping people grow from the inside out."
+            content="Life and career coaching in San Francisco with Andrew Tolentino, a Co-Active trained coach and former design leader. Book a free 25-minute discovery call."
         />
+        <meta name="author" content="Andrew Tolentino" />
+        <meta
+            name="robots"
+            content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+        <link rel="canonical" href="https://honestclub.co/" />
 
         <!-- Social sharing (Open Graph + Twitter) -->
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Honest Club" />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:url" content="https://honestclub.co/" />
         <meta
             property="og:title"
@@ -29,6 +37,10 @@
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="Honest Club: life and career coaching with Andrew in San Francisco"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
             name="twitter:title"
@@ -41,6 +53,10 @@
         <meta
             name="twitter:image"
             content="https://honestclub.co/images/web/og-card.jpg"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="Honest Club: life and career coaching with Andrew in San Francisco"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -57,855 +73,177 @@
             as="image"
             href="images/web/hero-000038820035.jpg"
         />
-        <style>
-            /* ---------- LOCAL FONTS ---------- */
-            @font-face {
-                font-family: "Gooper";
-                src:
-                    url("fonts/Gooper7-Regular.woff2") format("woff2"),
-                    url("fonts/Gooper7-Regular.woff") format("woff");
-                font-weight: 400;
-                font-style: normal;
-                font-display: swap;
-            }
-
-            @font-face {
-                font-family: "Gooper";
-                src:
-                    url("fonts/Gooper7-RegularItalic.woff2") format("woff2"),
-                    url("fonts/Gooper7-RegularItalic.woff") format("woff");
-                font-weight: 400;
-                font-style: italic;
-                font-display: swap;
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            /* ---------- THEME TOKENS ---------- */
-            /* Light theme: default for whole page */
-            :root {
-                --bg-main: #f5f1e8;
-                --bg-alt: #c8d2c5;
-                --bg-footer: #c8d2c5;
-
-                --text: #0f2419;
-                --text-rgb: 15, 36, 25;
-
-                --accent: #4a6b5d;
-                --accent-rgb: 74, 107, 93;
-
-                --highlight: #a87a3e;
-                --highlight-rgb: 168, 122, 62;
-
-                --btn-bg: #0f2419;
-                --btn-text: #f5f1e8;
-                --btn-hover-bg: #1a3a2e;
-
-                --hero-img-opacity: 0.3;
-                --grain-opacity: 0.06;
-            }
-
-            /* Dark theme: scoped to hero and footer */
-            [data-theme="dark"] {
-                --bg-main: #0f2419;
-                --bg-footer: #08160e;
-
-                --text: #f5f1e8;
-                --text-rgb: 245, 241, 232;
-
-                --accent: #4a6b5d;
-                --accent-rgb: 74, 107, 93;
-
-                --highlight: #e8d5a3;
-                --highlight-rgb: 232, 213, 163;
-
-                --btn-bg: #f5f1e8;
-                --btn-text: #0f2419;
-                --btn-hover-bg: #e8d5a3;
-
-                --hero-img-opacity: 0.3;
-            }
-
-            /* ---------- BASE ---------- */
-            body {
-                font-family:
-                    "DM Sans",
-                    -apple-system,
-                    sans-serif;
-                background: var(--bg-main);
-                color: var(--text);
-                line-height: 1.7;
-                font-weight: 400;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                text-rendering: optimizeLegibility;
-                position: relative;
-                overflow-x: hidden;
-                min-height: 100vh;
-                transition:
-                    background-color 0.5s ease,
-                    color 0.5s ease;
-            }
-
-            /* Subtle grain texture: overlay above sections so it's visible everywhere */
-            body::before {
-                content: "";
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: var(--grain-opacity);
-                pointer-events: none;
-                z-index: 100;
-                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-                transition: opacity 0.5s ease;
-            }
-
-            @keyframes fadeIn {
-                to {
-                    opacity: 1;
-                }
-            }
-
-            /* ---------- LAYOUT ---------- */
-            .section-band {
-                position: relative;
-                width: 100%;
-                z-index: 2;
-                border-top: 1px solid rgba(var(--accent-rgb), 0.12);
-                transition:
-                    background-color 0.5s ease,
-                    border-color 0.5s ease;
-            }
-
-            .section-band:first-of-type {
-                border-top: none;
-            }
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 96px 24px;
-                position: relative;
-                z-index: 2;
-            }
-
-            .bg-hero {
-                background: var(--bg-main);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .bg-hero::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background-image: url("images/web/hero-000038820035.jpg");
-                background-size: cover;
-                background-position: center;
-                opacity: 0;
-                transform: scale(1.04);
-                pointer-events: none;
-                z-index: 0;
-                transition:
-                    opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-                transition-delay: 0.1s;
-            }
-
-            body.loaded .bg-hero::before {
-                opacity: var(--hero-img-opacity);
-                transform: scale(1);
-            }
-
-            .bg-alt {
-                background: var(--bg-alt);
-            }
-
-            .bg-base {
-                background: var(--bg-main);
-            }
-
-            /* CTA band: photo background with a forest tint to lift the
-               cream card */
-            .bg-cta {
-                background: var(--bg-main);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .bg-cta::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background-image: url("images/web/cta-000038820037.jpg");
-                background-size: cover;
-                background-position: center;
-                z-index: 0;
-            }
-
-            .bg-cta::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: rgba(15, 36, 25, 0.45);
-                z-index: 1;
-            }
-
-            /* ---------- REVEAL ANIMATIONS ---------- */
-            .reveal {
-                opacity: 0;
-                transform: translateY(32px);
-                transition:
-                    opacity 1.1s cubic-bezier(0.22, 1.2, 0.36, 1),
-                    transform 1.1s cubic-bezier(0.22, 1.2, 0.36, 1);
-                will-change: opacity, transform;
-            }
-
-            .reveal.is-visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .reveal-stagger > * {
-                opacity: 0;
-                transform: translateY(28px);
-                transition:
-                    opacity 1s cubic-bezier(0.22, 1.2, 0.36, 1),
-                    transform 1s cubic-bezier(0.22, 1.2, 0.36, 1);
-            }
-
-            .reveal-stagger.is-visible > *:nth-child(1) {
-                opacity: 1;
-                transform: translateY(0);
-                transition-delay: 0s;
-            }
-
-            .reveal-stagger.is-visible > *:nth-child(2) {
-                opacity: 1;
-                transform: translateY(0);
-                transition-delay: 0.18s;
-            }
-
-            .reveal-stagger.is-visible > *:nth-child(3) {
-                opacity: 1;
-                transform: translateY(0);
-                transition-delay: 0.36s;
-            }
-
-            .reveal-stagger.is-visible > *:nth-child(4) {
-                opacity: 1;
-                transform: translateY(0);
-                transition-delay: 0.54s;
-            }
-
-            /* Image fade-in on load */
-            .img-fade {
-                opacity: 0;
-                transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-                background: rgba(var(--accent-rgb), 0.08);
-            }
-
-            .img-fade.loaded {
-                opacity: 1;
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                .reveal,
-                .reveal-stagger > *,
-                .img-fade {
-                    opacity: 1 !important;
-                    transform: none !important;
-                    transition: none !important;
-                }
-
-                .bg-hero::before {
-                    transition: none;
-                    opacity: var(--hero-img-opacity);
-                    transform: none;
-                }
-
-                .btn-primary:hover .arrow,
-                .wave {
-                    animation: none;
-                }
-
-                .about-text a,
-                .footer a {
-                    transition: none;
-                }
-
-                .about-photo-inner {
-                    transition: none;
-                }
-            }
-
-            /* ---------- LOGO ---------- */
-            .logo-bar {
-                padding: 120px 24px 0;
-                max-width: 1200px;
-                margin: 0 auto;
-                opacity: 0;
-                animation: fadeIn 0.8s ease-out forwards;
-                position: relative;
-                z-index: 3;
-            }
-
-            .logo-text {
-                font-family: "Gooper", Georgia, serif;
-                font-size: 30px;
-                font-weight: 400;
-                font-style: italic;
-                letter-spacing: 0;
-                color: var(--highlight);
-                text-decoration: none;
-                transition: color 0.5s ease;
-            }
-
-            /* ---------- HERO ---------- */
-            .hero {
-                opacity: 0;
-                animation: fadeIn 0.8s ease-out 0.3s forwards;
-                padding-top: 32px;
-            }
-
-            .wave {
-                display: inline-block;
-                animation: wave 2s ease-in-out infinite;
-                transform-origin: 70% 70%;
-            }
-
-            @keyframes wave {
-                0%,
-                100% {
-                    transform: rotate(0deg);
-                }
-                10%,
-                30% {
-                    transform: rotate(14deg);
-                }
-                20% {
-                    transform: rotate(-8deg);
-                }
-                40%,
-                100% {
-                    transform: rotate(0deg);
-                }
-            }
-
-            h1 {
-                font-family: "Gooper", Georgia, serif;
-                font-size: 64px;
-                font-weight: 400;
-                color: var(--text);
-                line-height: 1.15;
-                letter-spacing: -1px;
-                margin-bottom: 28px;
-                max-width: 75%;
-                transition: color 0.5s ease;
-            }
-
-            /* Rotating headline phrase */
-            /* Inline slot for the rotating word. Its min-width is set in JS
-               to the widest word so line breaks stay identical for every
-               word, so there is no vertical shift and no reserved space
-               below. */
-            .rotator {
-                display: inline-block;
-                white-space: nowrap;
-                font-style: italic;
-                color: var(--highlight);
-            }
-
-            .rotator-word {
-                display: inline-block;
-                will-change: opacity, transform;
-            }
-
-            @media (prefers-reduced-motion: reduce) {
-                .rotator-word {
-                    transition: none !important;
-                }
-            }
-
-            .hero-sub {
-                font-size: 20px;
-                color: rgba(var(--text-rgb), 0.95);
-                font-weight: 400;
-                line-height: 1.6;
-                margin-bottom: 36px;
-                max-width: 70%;
-                transition: color 0.5s ease;
-            }
-
-            .hero-sub .wave {
-                font-size: 24px;
-            }
-
-            .hero-sub .highlight {
-                color: var(--highlight);
-                font-weight: 400;
-            }
-
-            /* ---------- BUTTON ---------- */
-            .btn-primary {
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                padding: 16px 32px;
-                background: var(--btn-bg);
-                color: var(--btn-text);
-                text-decoration: none;
-                border-radius: 999px;
-                font-weight: 500;
-                font-size: 16px;
-                letter-spacing: 0.2px;
-                transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-
-            .btn-primary:hover {
-                transform: translateY(-3px) scale(1.03);
-                background: var(--btn-hover-bg);
-                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-            }
-
-            .btn-primary .arrow {
-                transition: transform 0.3s ease;
-            }
-
-            .btn-primary:hover .arrow {
-                animation: nudge 0.9s ease-in-out infinite;
-            }
-
-            @keyframes nudge {
-                0%,
-                100% {
-                    transform: translateX(3px);
-                }
-                50% {
-                    transform: translateX(8px);
-                }
-            }
-
-            .hero-meta {
-                margin-top: 18px;
-                font-size: 14px;
-                font-weight: 400;
-                color: rgba(var(--text-rgb), 0.75);
-                transition: color 0.5s ease;
-            }
-
-            /* ---------- SECTION HEADERS ---------- */
-            .section-eyebrow {
-                font-family: "DM Mono", ui-monospace, monospace;
-                font-size: 13px;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                color: var(--text);
-                margin-bottom: 16px;
-                font-weight: 500;
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                transition: color 0.5s ease;
-            }
-
-            .section-eyebrow::before {
-                content: "✳";
-                color: var(--highlight);
-                font-size: 16px;
-                line-height: 1;
-                transform: translateY(-1.5px);
-                transition: color 0.5s ease;
-            }
-
-            .section-title {
-                font-family: "Gooper", Georgia, serif;
-                font-size: 40px;
-                font-weight: 400;
-                color: var(--text);
-                line-height: 1.2;
-                letter-spacing: -0.5px;
-                margin-bottom: 48px;
-                transition: color 0.5s ease;
-            }
-
-            .highlight {
-                color: var(--highlight);
-                font-weight: 400;
-                position: relative;
-                padding: 0 2px;
-                transition: color 0.5s ease;
-            }
-
-
-            /* ---------- WHO I COACH ---------- */
-            .grid-3 {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 24px;
-            }
-
-            .ideal-card {
-                background: var(--bg-main);
-                border: 1px solid rgba(var(--accent-rgb), 0.2);
-                border-radius: 20px;
-                overflow: hidden;
-                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-                transition:
-                    border-color 0.3s ease,
-                    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-                    box-shadow 0.3s ease;
-            }
-
-            .grid-3 .ideal-card:hover {
-                transform: translateY(-6px);
-                border-color: rgba(var(--accent-rgb), 0.45);
-                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
-            }
-
-            .ideal-card-image {
-                width: 100%;
-                aspect-ratio: 4 / 3;
-                object-fit: cover;
-                display: block;
-            }
-
-            .ideal-card-body {
-                padding: 22px 22px 26px;
-            }
-
-            .ideal-card-title {
-                font-family: "Gooper", Georgia, serif;
-                font-size: 22px;
-                font-weight: 400;
-                color: var(--text);
-                line-height: 1.3;
-                margin-bottom: 10px;
-                transition: color 0.5s ease;
-            }
-
-            .ideal-card-text {
-                font-size: 15px;
-                line-height: 1.6;
-                color: rgba(var(--text-rgb), 0.8);
-                transition: color 0.5s ease;
-            }
-
-            /* ---------- VALUES ---------- */
-            .values-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 72px 48px;
-            }
-
-            .value-row {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .value-image {
-                width: 100%;
-                aspect-ratio: 3 / 2;
-                object-fit: cover;
-                border-radius: 20px;
-                border: 1px solid rgba(var(--accent-rgb), 0.28);
-                transition: border-color 0.5s ease;
-            }
-
-            .value-text .value-number {
-                font-family: "DM Mono", ui-monospace, monospace;
-                font-size: 13px;
-                font-weight: 500;
-                color: var(--accent);
-                letter-spacing: 2px;
-                margin-bottom: 14px;
-                text-transform: uppercase;
-                transition: color 0.5s ease;
-            }
-
-            .value-text h3 {
-                font-family: "Gooper", Georgia, serif;
-                font-size: 32px;
-                font-weight: 400;
-                color: var(--text);
-                line-height: 1.25;
-                letter-spacing: -0.3px;
-                margin-bottom: 14px;
-                transition: color 0.5s ease;
-            }
-
-            .value-text p {
-                font-size: 17px;
-                line-height: 1.7;
-                color: rgba(var(--text-rgb), 0.85);
-                transition: color 0.5s ease;
-            }
-
-            /* ---------- ABOUT ---------- */
-            .about-grid {
-                display: grid;
-                grid-template-columns: 280px 1fr;
-                gap: 56px;
-                align-items: start;
-            }
-
-            .about-photo {
-                position: relative;
-                width: 280px;
-                height: 340px;
-                perspective: 1200px;
-            }
-
-            /* Easter egg: the photo flips over like a card, switching
-               between the serious and laughing shots. Each face carries
-               its own border and rounding so the whole card (frame
-               included) turns together. */
-            .about-photo-inner {
-                position: absolute;
-                inset: 0;
-                transform-style: preserve-3d;
-                transition: transform 0.8s cubic-bezier(0.4, 0.1, 0.2, 1);
-            }
-
-            .about-photo.flipped .about-photo-inner {
-                transform: rotateY(180deg);
-            }
-
-            .about-face {
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 20px;
-                border: 2px solid rgba(var(--accent-rgb), 0.35);
-                backface-visibility: hidden;
-                -webkit-backface-visibility: hidden;
-            }
-
-            .about-face-laughing {
-                transform: rotateY(180deg);
-            }
-
-            .about-text p {
-                font-size: 17px;
-                line-height: 1.75;
-                color: rgba(var(--text-rgb), 0.9);
-                margin-bottom: 20px;
-                transition: color 0.5s ease;
-            }
-
-            .about-text p:last-child {
-                margin-bottom: 0;
-            }
-
-            /* Links: a regular underline so they read as clickable */
-            .about-text a,
-            .footer a {
-                color: inherit;
-                text-decoration: underline;
-                text-decoration-color: rgba(var(--highlight-rgb), 0.6);
-                text-decoration-thickness: 1.5px;
-                text-underline-offset: 3px;
-                transition:
-                    color 0.3s ease,
-                    text-decoration-color 0.3s ease;
-            }
-
-            .about-text a:hover,
-            .footer a:hover {
-                color: var(--highlight);
-                text-decoration-color: var(--highlight);
-            }
-
-            .quick-facts {
-                list-style: none;
-                margin: 28px 0 4px;
-                padding: 0;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 12px 24px;
-            }
-
-            .quick-facts li {
-                font-size: 15px;
-                color: rgba(var(--text-rgb), 0.85);
-                padding-left: 22px;
-                position: relative;
-                line-height: 1.5;
-                transition: color 0.5s ease;
-            }
-
-            .quick-facts li::before {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 6px;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: var(--accent);
-                opacity: 0.75;
-                transition: background-color 0.5s ease;
-            }
-
-            /* ---------- FINAL CTA ---------- */
-            .final-cta {
-                text-align: center;
-                background: var(--bg-main);
-                border: 1px solid rgba(var(--accent-rgb), 0.25);
-                border-radius: 24px;
-                padding: 64px 48px;
-                max-width: 720px;
-                margin: 0 auto;
-                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-            }
-
-            .final-cta h2 {
-                font-family: "Gooper", Georgia, serif;
-                font-size: 40px;
-                font-weight: 400;
-                color: var(--text);
-                line-height: 1.2;
-                margin-bottom: 18px;
-                letter-spacing: -0.5px;
-                transition: color 0.5s ease;
-            }
-
-            .final-cta p {
-                font-size: 17px;
-                color: rgba(var(--text-rgb), 0.85);
-                line-height: 1.7;
-                margin: 0 auto 32px;
-                max-width: 480px;
-                transition: color 0.5s ease;
-            }
-
-            /* ---------- FOOTER ---------- */
-            .footer-band {
-                background: var(--bg-footer);
-                border-top: 1px solid rgba(var(--accent-rgb), 0.15);
-                position: relative;
-                z-index: 2;
-                transition:
-                    background-color 0.5s ease,
-                    border-color 0.5s ease;
-            }
-
-            .footer {
-                font-size: 16px;
-                color: rgba(var(--text-rgb), 0.8);
-                text-align: center;
-                padding: 56px 24px;
-                max-width: 720px;
-                margin: 0 auto;
-                transition: color 0.5s ease;
-            }
-
-            .copyright {
-                margin-top: 28px;
-                font-size: 14px;
-                color: rgba(var(--text-rgb), 0.65);
-            }
-
-            @media (max-width: 880px) {
-                .grid-3 {
-                    grid-template-columns: 1fr;
-                    gap: 20px;
-                }
-
-                .values-grid {
-                    grid-template-columns: 1fr;
-                    gap: 56px;
-                }
-
-                .about-grid {
-                    grid-template-columns: 1fr;
-                    gap: 28px;
-                }
-
-                .about-photo {
-                    width: 100%;
-                    max-width: 320px;
-                    height: auto;
-                    aspect-ratio: 1 / 1;
-                }
-
-                .quick-facts {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            @media (max-width: 640px) {
-                .container {
-                    padding: 64px 20px;
-                }
-
-                .logo-bar {
-                    padding: 52px 20px 0;
-                }
-
-                .logo-bar svg {
-                    width: 120px;
-                }
-
-                h1 {
-                    font-size: 38px;
-                    letter-spacing: -0.5px;
-                    margin-bottom: 22px;
-                    max-width: 100%;
-                }
-
-                .hero-sub {
-                    font-size: 17px;
-                    max-width: 100%;
-                }
-
-                .hero-sub .wave {
-                    font-size: 20px;
-                }
-
-                .section-title {
-                    font-size: 28px;
-                    margin-bottom: 36px;
-                }
-
-                .value-text h3 {
-                    font-size: 26px;
-                }
-
-                .value-text p {
-                    font-size: 16px;
-                }
-
-                .ideal-card-title {
-                    font-size: 20px;
-                }
-
-                .final-cta {
-                    padding: 44px 24px;
-                    border-radius: 20px;
-                }
-
-                .final-cta h2 {
-                    font-size: 28px;
-                }
-
-                .btn-primary {
-                    padding: 14px 26px;
-                    font-size: 15px;
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="/styles.css" />
+
+        <!-- Structured data (schema.org) -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "ProfessionalService",
+                        "@id": "https://honestclub.co/#business",
+                        "name": "Honest Club",
+                        "alternateName": "Honest Club Coaching",
+                        "description": "Life and career coaching in San Francisco for designers, creative leaders, and people in transition.",
+                        "url": "https://honestclub.co/",
+                        "email": "hello@honestclub.co",
+                        "image": "https://honestclub.co/images/web/og-card.jpg",
+                        "logo": "https://honestclub.co/images/honest-club-logo.svg",
+                        "founder": {
+                            "@id": "https://honestclub.co/#andrew"
+                        },
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "San Francisco",
+                            "addressRegion": "CA",
+                            "addressCountry": "US"
+                        },
+                        "areaServed": [
+                            {
+                                "@type": "City",
+                                "name": "San Francisco"
+                            },
+                            {
+                                "@type": "Country",
+                                "name": "United States"
+                            }
+                        ],
+                        "availableChannel": {
+                            "@type": "ServiceChannel",
+                            "serviceUrl": "https://cal.com/honest-club/discovery-call",
+                            "name": "Free 25-minute discovery call"
+                        },
+                        "knowsAbout": [
+                            "Life coaching",
+                            "Career coaching",
+                            "Leadership coaching",
+                            "Career transitions",
+                            "Design leadership"
+                        ],
+                        "hasOfferCatalog": {
+                            "@type": "OfferCatalog",
+                            "name": "Coaching services",
+                            "itemListElement": [
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Discovery call",
+                                        "description": "A free 25-minute conversation to see whether coaching together is a fit. No pitch.",
+                                        "serviceType": "Life and career coaching"
+                                    },
+                                    "price": "0",
+                                    "priceCurrency": "USD",
+                                    "url": "https://cal.com/honest-club/discovery-call"
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "The Landing",
+                                        "description": "A short, focused one on one or group engagement of one to three months for a specific transition, decision, or life change.",
+                                        "serviceType": "Life and career coaching"
+                                    },
+                                    "url": "https://honestclub.co/coaching-packages/"
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "The Summit",
+                                        "description": "A long-term one on one or group engagement of three to twelve months for full transformation, mastery, and lasting growth.",
+                                        "serviceType": "Life and career coaching"
+                                    },
+                                    "url": "https://honestclub.co/coaching-packages/"
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Executive coaching",
+                                        "description": "Executive coaching for senior leaders, sponsored by their organization.",
+                                        "serviceType": "Life and career coaching"
+                                    },
+                                    "url": "https://honestclub.co/coaching-for-companies/"
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Founder coaching",
+                                        "description": "Coaching for founders and entrepreneurs in the early stage of building a company.",
+                                        "serviceType": "Life and career coaching"
+                                    },
+                                    "url": "https://honestclub.co/coaching-for-companies/"
+                                },
+                                {
+                                    "@type": "Offer",
+                                    "itemOffered": {
+                                        "@type": "Service",
+                                        "name": "Team consulting",
+                                        "description": "Consulting and coaching with whole teams inside an organization.",
+                                        "serviceType": "Life and career coaching"
+                                    },
+                                    "url": "https://honestclub.co/coaching-for-companies/"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "@type": "Person",
+                        "@id": "https://honestclub.co/#andrew",
+                        "name": "Andrew Tolentino",
+                        "givenName": "Andrew",
+                        "familyName": "Tolentino",
+                        "jobTitle": "Life and Career Coach",
+                        "description": "Product design leader turned professional life and career coach, with more than a decade leading design teams.",
+                        "image": "https://honestclub.co/images/web/profile-andrew-serious.jpg",
+                        "email": "hello@honestclub.co",
+                        "worksFor": {
+                            "@id": "https://honestclub.co/#business"
+                        },
+                        "hasCredential": {
+                            "@type": "EducationalOccupationalCredential",
+                            "credentialCategory": "certification",
+                            "name": "Co-Active Practitioner (CAP)"
+                        },
+                        "homeLocation": {
+                            "@type": "Place",
+                            "name": "San Francisco, CA"
+                        }
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://honestclub.co/#website",
+                        "url": "https://honestclub.co/",
+                        "name": "Honest Club",
+                        "publisher": {
+                            "@id": "https://honestclub.co/#business"
+                        },
+                        "inLanguage": "en-US"
+                    },
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://honestclub.co/#webpage",
+                        "url": "https://honestclub.co/",
+                        "name": "Life & Career Coach in San Francisco | Honest Club",
+                        "description": "Life and career coaching in San Francisco with Andrew, a Co-Active trained coach and former design leader.",
+                        "isPartOf": {
+                            "@id": "https://honestclub.co/#website"
+                        },
+                        "about": {
+                            "@id": "https://honestclub.co/#business"
+                        },
+                        "primaryImageOfPage": "https://honestclub.co/images/web/og-card.jpg",
+                        "inLanguage": "en-US"
+                    }
+                ]
+            }
+        </script>
     </head>
     <body>
+        <main id="main">
         <!-- HERO -->
         <section class="section-band bg-hero" data-theme="dark">
             <!-- Logo -->
@@ -934,11 +272,11 @@
                     href="https://cal.com/honest-club/discovery-call"
                     class="btn-primary"
                 >
-                    Book a discovery call
+                    Book a free discovery call
                     <span class="arrow">→</span>
                 </a>
                 <p class="hero-meta">
-                    Free 25-minute call. No pitch.
+                    25-minute call. No pitch.
                 </p>
             </div>
         </section>
@@ -952,6 +290,14 @@
                     <span class="highlight">honest growth</span>
                 </h2>
 
+                <p class="page-intro reveal">
+                    I work best with people who feel things deeply. Big
+                    emotion is not a problem to be managed here, it is the
+                    material we work with. It is what lets us get past the
+                    tidy version of the story and into the kind of change
+                    that actually holds.
+                </p>
+
                 <div class="grid-3 reveal-stagger">
                     <div class="ideal-card">
                         <img
@@ -962,13 +308,14 @@
                             decoding="async"
                         />
                         <div class="ideal-card-body">
-                            <div class="ideal-card-title">
+                            <h3 class="ideal-card-title">
                                 Designers &amp; creatives
-                            </div>
+                            </h3>
                             <p class="ideal-card-text">
                                 Designers, leaders, and creative folks
                                 ready to grow with intention.
                             </p>
+                            <a href="/coaching-for-designers/" class="card-link">Coaching for designers <span aria-hidden="true">&rarr;</span></a>
                         </div>
                     </div>
 
@@ -981,13 +328,14 @@
                             decoding="async"
                         />
                         <div class="ideal-card-body">
-                            <div class="ideal-card-title">
+                            <h3 class="ideal-card-title">
                                 People in transition
-                            </div>
+                            </h3>
                             <p class="ideal-card-text">
                                 Switching teams, stepping into leadership,
                                 or sensing it's time for something new.
                             </p>
+                            <a href="/career-transition-coaching/" class="card-link">Career coaching <span aria-hidden="true">&rarr;</span></a>
                         </div>
                     </div>
 
@@ -1000,21 +348,77 @@
                             decoding="async"
                         />
                         <div class="ideal-card-body">
-                            <div class="ideal-card-title">
+                            <h3 class="ideal-card-title">
                                 Anyone needing a champion
-                            </div>
+                            </h3>
                             <p class="ideal-card-text">
                                 Looking for someone in your corner who
                                 actually listens.
                             </p>
+                            <a href="/leadership-coaching/" class="card-link">Leadership coaching <span aria-hidden="true">&rarr;</span></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- WHAT I BELIEVE / VALUES -->
+        <!-- WHAT I OFFER -->
         <section class="section-band bg-base">
+            <div class="container">
+                <div class="section-eyebrow">What I offer</div>
+                <h2 class="section-title">
+                    Coaching
+                    <span class="highlight">packages</span>
+                </h2>
+
+                <p class="page-intro reveal">
+                    Coaching runs one on one or in a small group. The
+                    difference between the two packages is not how hard, but
+                    it's how far you want to climb.
+                </p>
+
+                <div class="package-grid reveal-stagger">
+                    <div class="package-card">
+                        <div class="package-meta">Short path: 1 to 3 months</div>
+                        <h3>The Landing</h3>
+                        <p>
+                            Short, focused work on one specific thing. A
+                            transition, a decision, a change you can feel
+                            coming.
+                        </p>
+                        <a href="https://cal.com/honest-club/discovery-call" class="btn-card">Book now <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-meta">Longer growth: 3 to 12 months</div>
+                        <h3>The Summit</h3>
+                        <p>
+                            The long climb. Not one decision but the whole
+                            shape of how you work and live.
+                        </p>
+                        <a href="https://cal.com/honest-club/discovery-call" class="btn-card">Book now <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <div class="offer-wide reveal">
+                    <div>
+                        <div class="package-meta">For companies, founders, &amp; teams</div>
+                        <h3>Coaching inside your organization</h3>
+                        <p>
+                            The people carrying the most have the fewest
+                            places to be honest. I become that place. Clearer
+                            decisions and fewer quiet exits tend to follow.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="mailto:hello@honestclub.co" class="btn-card">Email for info <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT I BELIEVE / VALUES -->
+        <section class="section-band bg-alt">
             <div class="container">
                 <div class="section-eyebrow">What I believe</div>
                 <h2 class="section-title">
@@ -1098,6 +502,34 @@
             </div>
         </section>
 
+        <!-- THE PATH -->
+        <section class="section-band bg-base">
+            <div class="container">
+                <div class="section-eyebrow">The path</div>
+                <h2 class="section-title">
+                    What the <span class="highlight">work looks like</span>
+                </h2>
+
+                <ul class="path-list reveal-stagger">
+                    <li class="path-step">
+                        <span class="path-num">01</span>
+                        <h3>A free 25-minute call</h3>
+                        <p>No pitch and no prep. We talk, you get a feel for how I work, and you decide whether it lands.</p>
+                    </li>
+                    <li class="path-step">
+                        <span class="path-num">02</span>
+                        <h3>We get honest</h3>
+                        <p>We choose the shape, short or long, and start saying the true things out loud, including the parts you have been carefully talking around.</p>
+                    </li>
+                    <li class="path-step">
+                        <span class="path-num">03</span>
+                        <h3>The change holds</h3>
+                        <p>Roles and titles shift when something inside shifts first, so we stay there until you can hear yourself clearly without me.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <!-- ABOUT -->
         <section class="section-band bg-alt">
             <div class="container">
@@ -1168,14 +600,15 @@
                 <div class="final-cta reveal">
                     <h2>Want to <span class="highlight">chat</span>?</h2>
                     <p>
-                        Free 25-minute call. No pitch, just a real
-                        conversation to see if we vibe.
+                        Free 25-minute call. No pitch, just a real conversation to
+                        see if we vibe. It doubles as a sample coaching session,
+                        so you leave with something either way.
                     </p>
                     <a
                         href="https://cal.com/honest-club/discovery-call"
                         class="btn-primary"
                     >
-                        Book a discovery call
+                        Book a free discovery call
                         <span class="arrow">→</span>
                     </a>
                 </div>
@@ -1183,8 +616,18 @@
         </section>
 
         <!-- Footer -->
+        </main>
+
         <footer class="footer-band" data-theme="dark">
             <div class="footer">
+                <nav aria-label="Site"><ul class="footer-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/coaching-packages/">Coaching packages</a></li>
+                    <li><a href="/coaching-for-designers/">For designers</a></li>
+                    <li><a href="/career-transition-coaching/">Career transitions</a></li>
+                    <li><a href="/leadership-coaching/">Leadership</a></li>
+                    <li><a href="/coaching-for-companies/">For companies</a></li>
+                </ul></nav>
                 <p>
                     Want to say hi or ask a question?<br />
                     Reach out:
@@ -1198,58 +641,8 @@
             </div>
         </footer>
 
+        <script src="/site.js" defer></script>
         <script>
-            // Trigger hero background fade-in once everything's in
-            requestAnimationFrame(function () {
-                document.body.classList.add("loaded");
-            });
-
-            // Image fade-in on load (the stacked about-photo faces manage
-            // their own opacity for the easter egg)
-            document.querySelectorAll("img:not(.about-face)").forEach(function (img) {
-                img.classList.add("img-fade");
-                if (img.complete && img.naturalHeight !== 0) {
-                    img.classList.add("loaded");
-                } else {
-                    img.addEventListener(
-                        "load",
-                        function () {
-                            img.classList.add("loaded");
-                        },
-                        { once: true }
-                    );
-                    img.addEventListener(
-                        "error",
-                        function () {
-                            img.classList.add("loaded");
-                        },
-                        { once: true }
-                    );
-                }
-            });
-
-            // Scroll-triggered reveals
-            var revealObserver = new IntersectionObserver(
-                function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("is-visible");
-                            revealObserver.unobserve(entry.target);
-                        }
-                    });
-                },
-                {
-                    threshold: 0.12,
-                    rootMargin: "0px 0px -60px 0px",
-                }
-            );
-
-            document
-                .querySelectorAll(".reveal, .reveal-stagger")
-                .forEach(function (el) {
-                    revealObserver.observe(el);
-                });
-
             // Easter egg: the profile photo flips over like a card,
             // alternating between serious and laughing over time
             (function () {
