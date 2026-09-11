@@ -1,4 +1,6 @@
-/* ---------- LOCAL FONTS ---------- */
+/* ---------- LOCAL FONTS ----------
+   Gooper is the brand serif. DM Sans and DM Mono are the Google Fonts
+   latin subsets, self-hosted so the page does not wait on fonts.googleapis.com. */
 @font-face {
     font-family: "Gooper";
     src:
@@ -17,6 +19,42 @@
     font-weight: 400;
     font-style: italic;
     font-display: swap;
+}
+
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/DMSans-latin.woff2") format("woff2");
+    font-weight: 300 600;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "DM Sans";
+    src: url("fonts/DMSans-Italic-latin.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "DM Mono";
+    src: url("fonts/DMMono-Regular-latin.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "DM Mono";
+    src: url("fonts/DMMono-Medium-latin.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 * {
@@ -137,7 +175,8 @@ body::before {
 
 .bg-hero {
     /* Each page sets its own --hero-image; this is the homepage's. */
-    --hero-image: url("images/web/hero-000038820035.jpg");
+    --hero-image: url("images/web/hero-000038820035.webp");
+    --hero-image-small: url("images/web/hero-000038820035-mobile.webp");
     background: var(--bg-main);
     position: relative;
     overflow: hidden;
@@ -165,6 +204,14 @@ body.loaded .bg-hero::before {
     transform: scale(1);
 }
 
+/* Phones get a portrait crop of the same frame: the band is taller than
+   it is wide there, so the landscape file was mostly cropped away. */
+@media (max-width: 900px) {
+    .bg-hero::before {
+        background-image: var(--hero-image-small, var(--hero-image));
+    }
+}
+
 .bg-alt {
     background: var(--bg-alt);
 }
@@ -185,7 +232,7 @@ body.loaded .bg-hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("images/web/cta-000038820037.jpg");
+    background-image: url("images/web/cta-000038820037.webp");
     background-size: cover;
     background-position: center;
     z-index: 0;
@@ -197,6 +244,12 @@ body.loaded .bg-hero::before {
     inset: 0;
     background: rgba(15, 36, 25, 0.45);
     z-index: 1;
+}
+
+@media (max-width: 900px) {
+    .bg-cta::before {
+        background-image: url("images/web/cta-000038820037-mobile.webp");
+    }
 }
 
 /* ---------- REVEAL ANIMATIONS ---------- */
@@ -533,6 +586,7 @@ h1 {
 
 .ideal-card-image {
     width: 100%;
+    height: auto;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
@@ -574,6 +628,7 @@ h1 {
 
 .value-image {
     width: 100%;
+    height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
     border-radius: 20px;
@@ -1412,11 +1467,14 @@ h1 {
     gap: 12px;
 }
 
-/* Hovering anywhere on the card presses its button. */
+/* Hovering anywhere on the card presses its button. No transform here:
+   a transformed (or positioned) button becomes the containing block for
+   its own stretched ::after, which would shrink the tap target back down
+   to the button the moment a finger or pointer touches the card. The
+   card's own lift carries the motion. */
 .package-card:hover .btn-card,
 .offer-wide:hover .btn-card {
     background: var(--btn-hover-bg);
-    transform: translateY(-2px);
 }
 
 
@@ -1445,9 +1503,7 @@ h1 {
     font-size: 15px;
     letter-spacing: 0.2px;
     white-space: nowrap;
-    transition:
-        background-color 0.3s ease,
-        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: background-color 0.3s ease;
 }
 
 /* In the wide company row the button is the only thing in its
@@ -1471,11 +1527,6 @@ h1 {
     .btn-card .arrow {
         transition: none;
     }
-
-    .package-card:hover .btn-card,
-    .offer-wide:hover .btn-card {
-        transform: none;
-    }
 }
 
 /* ---------- PER-PAGE HERO PHOTOGRAPHY ----------
@@ -1483,27 +1534,33 @@ h1 {
    homepage repeated five times. Landscape scans only: the band is wide
    and a portrait source would crop to almost nothing. */
 .hero-designers {
-    --hero-image: url("images/web/hero-000009890009.jpg");
+    --hero-image: url("images/web/hero-000009890009.webp");
+    --hero-image-small: url("images/web/hero-000009890009-mobile.webp");
 }
 
 .hero-transitions {
-    --hero-image: url("images/web/hero-000003310012.jpg");
+    --hero-image: url("images/web/hero-000003310012.webp");
+    --hero-image-small: url("images/web/hero-000003310012-mobile.webp");
 }
 
 .hero-leadership {
-    --hero-image: url("images/web/hero-000038820010.jpg");
+    --hero-image: url("images/web/hero-000038820010.webp");
+    --hero-image-small: url("images/web/hero-000038820010-mobile.webp");
 }
 
 .hero-packages {
-    --hero-image: url("images/web/hero-000003360031.jpg");
+    --hero-image: url("images/web/hero-000003360031.webp");
+    --hero-image-small: url("images/web/hero-000003360031-mobile.webp");
 }
 
 .hero-companies {
-    --hero-image: url("images/web/hero-000009890003.jpg");
+    --hero-image: url("images/web/hero-000009890003.webp");
+    --hero-image-small: url("images/web/hero-000009890003-mobile.webp");
 }
 
 .hero-story {
-    --hero-image: url("images/web/hero-000003310034.jpg");
+    --hero-image: url("images/web/hero-000003310034.webp");
+    --hero-image-small: url("images/web/hero-000003310034-mobile.webp");
 }
 
 /* ---------- IN-SECTION CTA ----------
@@ -1562,7 +1619,8 @@ h1 {
 }
 
 .hero-sessions {
-    --hero-image: url("images/web/hero-coastline.jpg");
+    --hero-image: url("images/web/hero-coastline.webp");
+    --hero-image-small: url("images/web/hero-coastline-mobile.webp");
 }
 
 /* Inline links inside body copy, matching the footer's underline treatment.

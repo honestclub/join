@@ -50,3 +50,31 @@ document
     .forEach(function (el) {
         revealObserver.observe(el);
     });
+
+// Whole-card tap target. The CSS stretches each card's link over the
+// card where :has() is supported; this covers browsers that lack it,
+// so tapping the card body always follows the same link.
+document.addEventListener("click", function (event) {
+    if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+    ) {
+        return;
+    }
+    if (event.target.closest("a, button, input, textarea, select, label")) {
+        return;
+    }
+    var card = event.target.closest(".package-card, .ideal-card, .offer-wide");
+    if (!card) return;
+    var link = card.querySelector(".btn-card, .card-link");
+    if (!link) return;
+    var selection = window.getSelection && window.getSelection();
+    if (selection && selection.type === "Range" && String(selection).length) {
+        return;
+    }
+    link.click();
+});
