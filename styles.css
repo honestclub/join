@@ -1825,3 +1825,152 @@ h1 {
         font-size: 40px;
     }
 }
+
+/* ---------- KIND WORDS (quote cards) ----------
+   A row of cards that scrolls sideways with native scroll-snap, so
+   swiping, trackpads, and keyboards all work before any JS loads. site.js
+   only adds the arrow buttons. The track's own padding leaves room for
+   the card shadows, which overflow-x would otherwise clip. */
+.quotes-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 4px 0 24px;
+}
+
+.quotes-track::-webkit-scrollbar {
+    display: none;
+}
+
+.quotes-track:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
+    border-radius: 20px;
+}
+
+.quote-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-main);
+    border: 1px solid rgba(var(--accent-rgb), 0.22);
+    border-radius: 20px;
+    padding: 30px 30px 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.quote-card blockquote::before {
+    content: "\201C";
+    display: block;
+    height: 30px;
+    font-family: "Gooper", Georgia, serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--highlight);
+    transition: color 0.5s ease;
+}
+
+.quote-card blockquote p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(var(--text-rgb), 0.9);
+    transition: color 0.5s ease;
+}
+
+.quote-card figcaption {
+    margin-top: auto;
+    padding-top: 24px;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--accent);
+    transition: color 0.5s ease;
+}
+
+.quotes-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.quotes-controls[hidden] {
+    display: none;
+}
+
+.quotes-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(var(--accent-rgb), 0.45);
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.quotes-btn:hover {
+    background: var(--btn-bg);
+    border-color: var(--btn-bg);
+    color: var(--btn-text);
+}
+
+.quotes-btn[aria-disabled="true"] {
+    opacity: 0.3;
+    cursor: default;
+    background: transparent;
+    border-color: rgba(var(--accent-rgb), 0.45);
+    color: var(--text);
+}
+
+.quotes-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 880px) {
+    .quote-card {
+        flex-basis: calc((100% - 24px) / 2);
+    }
+}
+
+/* On a phone the row bleeds to the screen edge and the next card peeks
+   in, which is the cue that it scrolls. */
+@media (max-width: 640px) {
+    .quotes-track {
+        gap: 16px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        scroll-padding-left: 20px;
+    }
+
+    .quote-card {
+        flex-basis: 84%;
+        padding: 26px 24px 24px;
+    }
+
+    .quote-card blockquote p {
+        font-size: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .quotes-btn {
+        transition: none;
+    }
+}
