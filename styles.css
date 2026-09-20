@@ -1892,6 +1892,21 @@ h1 {
     transition: color 0.5s ease;
 }
 
+/* The landing pages show three quotes as a plain grid: nothing to scroll,
+   so no track and no arrows, just the same cards. */
+.quotes-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 880px) {
+    .quotes-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
 .quotes-controls {
     display: flex;
     gap: 12px;
