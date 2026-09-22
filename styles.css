@@ -1069,8 +1069,7 @@ h1 {
 }
 
 .related-list a {
-    font-family: "Gooper", Georgia, serif;
-    font-size: 21px;
+    font-size: 18px;
     color: var(--text);
     text-decoration: none;
     border-bottom: 1px solid rgba(var(--accent-rgb), 0.3);
@@ -2007,7 +2006,6 @@ h1 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    max-width: 980px;
 }
 
 /* Same underline treatment as .package-note a, for links set in body copy. */
