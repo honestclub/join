@@ -1989,3 +1989,52 @@ h1 {
         transition: none;
     }
 }
+
+/* ---------- SUBPAGE: HEALTHCARE ----------
+   The research section runs stats, then prose, then a citation, so the
+   prose needs the same air above it that .steps + .story-prose gets. */
+.hero-healthcare {
+    --hero-image: url("images/web/hero-000038820036.webp");
+    --hero-image-small: url("images/web/hero-000038820036-mobile.webp");
+}
+
+.stat-row + .research-prose {
+    margin-top: 48px;
+}
+
+/* Four questions read better as a 2x2 than a 3-wide row with an orphan. */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 980px;
+}
+
+/* Same underline treatment as .package-note a, for links set in body copy. */
+.inline-link,
+.ideal-card-text a {
+    color: var(--highlight);
+    text-decoration: underline;
+    text-decoration-color: rgba(var(--highlight-rgb), 0.45);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    transition:
+        color 0.3s ease,
+        text-decoration-color 0.3s ease;
+}
+
+.inline-link:hover,
+.ideal-card-text a:hover {
+    text-decoration-color: var(--highlight);
+}
+
+@media (max-width: 880px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stat-row + .research-prose {
+        margin-top: 36px;
+    }
+}
