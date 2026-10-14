@@ -243,52 +243,48 @@
                 <span class="logo-text">honest club</span>
             </div>
 
-            <div class="container hero">
-                <h1>
-                    Honest coaching for
-                    <span class="highlight">designers</span>,
-                    <span class="highlight">creatives</span>, and
-                    <span class="highlight">people in tech</span>.
-                </h1>
-                <p class="hero-sub">
-                    <span class="wave">👋</span> Hey, I'm Andrew. I spent
-                    twenty years in product design, the last stretch leading
-                    teams. Now I coach the people I used to work alongside,
-                    <span class="highlight">from the inside out</span>.
-                </p>
-                <a
-                    href="https://cal.com/honest-club/discovery-call"
-                    class="btn-primary"
-                >
-                    Book a free discovery call
-                    <span class="arrow">→</span>
-                </a>
-                <p class="hero-meta">
-                    25 minutes. A real session, plus a look at how we could
-                    work together.
-                </p>
+            <div class="container hero hero-with-video">
+                <div class="hero-copy">
+                    <h1>
+                        Honest coaching for
+                        <span class="highlight">designers</span>,
+                        <span class="highlight">creatives</span>, and
+                        <span class="highlight">people in tech</span>.
+                    </h1>
+                    <p class="hero-sub">
+                        <span class="wave">👋</span> Hey, I'm Andrew. I spent
+                        twenty years in product design, the last stretch leading
+                        teams. Now I coach the people I used to work alongside,
+                        <span class="highlight">from the inside out</span>.
+                    </p>
+                    <a
+                        href="https://cal.com/honest-club/discovery-call"
+                        class="btn-primary"
+                    >
+                        Book a free discovery call
+                        <span class="arrow">→</span>
+                    </a>
+                    <p class="hero-meta">
+                        25 minutes. A real session, plus a look at how we could
+                        work together.
+                    </p>
+                </div>
 
-                <!-- Intro video slot. Stays hidden until site.js finds
-                     /media/andrew-intro.mp4 on the server. See README. -->
-                <figure class="intro-video" data-intro-video hidden>
+                <!-- Intro video. Captions are burned into the video itself,
+                     so it needs no separate captions track. Never autoplays. -->
+                <figure class="intro-video">
                     <video
                         controls
                         preload="none"
                         playsinline
-                        width="1280"
-                        height="720"
+                        width="720"
+                        height="1280"
                         poster="/media/andrew-intro-poster.webp"
+                        aria-label="Intro video: who I coach, and how to start"
                     >
                         <source src="/media/andrew-intro.mp4" type="video/mp4" />
-                        <track
-                            kind="captions"
-                            src="/media/andrew-intro.en.vtt"
-                            srclang="en"
-                            label="English"
-                            default
-                        />
                     </video>
-                    <figcaption>A minute with me: who I coach, and what it feels like to work together.</figcaption>
+                    <figcaption>Thirty seconds with me: who I coach, and how to start.</figcaption>
                 </figure>
             </div>
         </section>
@@ -390,63 +386,8 @@
             </div>
         </section>
 
-        <!-- KIND WORDS -->
-        <section class="section-band bg-base">
-            <div class="container">
-                <div class="section-eyebrow">Kind words</div>
-                <h2 class="section-title">
-                    What it's like to
-                    <span class="highlight">work with me</span>
-                </h2>
-
-                <div class="quotes" role="region" aria-label="Kind words from people Andrew has worked with">
-                    <div class="quotes-track reveal-stagger" tabindex="0">
-                        <figure class="quote-card">
-                            <blockquote>
-                                <p>Andrew has an astute, human-first approach. He connects with you deeply before working toward solutions for whatever you're facing.</p>
-                            </blockquote>
-                            <figcaption>AI Product Designer</figcaption>
-                        </figure>
-                        <figure class="quote-card">
-                            <blockquote>
-                                <p>Andrew embodies the best of what a design culture can be: the person who most clearly represents the values, history, and heart of a design team.</p>
-                            </blockquote>
-                            <figcaption>VP, Design</figcaption>
-                        </figure>
-                        <figure class="quote-card">
-                            <blockquote>
-                                <p>The energy Andrew brings to every room is contagious. Working alongside him made the whole team better.</p>
-                            </blockquote>
-                            <figcaption>Senior Director, Design</figcaption>
-                        </figure>
-                        <figure class="quote-card">
-                            <blockquote>
-                                <p>Andrew is a tremendous part of the cultural fabric of any org he's part of. His presence is felt long after he's moved on.</p>
-                            </blockquote>
-                            <figcaption>Senior Design Manager</figcaption>
-                        </figure>
-                        <figure class="quote-card">
-                            <blockquote>
-                                <p>Andrew is a wonderful person in this world. Watching him grow, and being trusted to grow alongside him, was a gift.</p>
-                            </blockquote>
-                            <figcaption>Staff Designer</figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="quotes-controls" hidden>
-                        <button type="button" class="quotes-btn" data-quotes-prev aria-label="Previous quotes">
-                            <span aria-hidden="true">&larr;</span>
-                        </button>
-                        <button type="button" class="quotes-btn" data-quotes-next aria-label="More quotes">
-                            <span aria-hidden="true">&rarr;</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- WHAT I OFFER -->
-        <section class="section-band bg-alt">
+        <section class="section-band bg-base">
             <div class="container">
                 <div class="section-eyebrow">What I offer</div>
                 <h2 class="section-title">
@@ -512,6 +453,61 @@
                             follow.
                         </p>
                         <a href="mailto:hello@honestclub.co" class="btn-card">Email for info <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KIND WORDS -->
+        <section class="section-band bg-alt">
+            <div class="container">
+                <div class="section-eyebrow">Kind words</div>
+                <h2 class="section-title">
+                    What it's like to
+                    <span class="highlight">work with me</span>
+                </h2>
+
+                <div class="quotes" role="region" aria-label="Kind words from people Andrew has worked with">
+                    <div class="quotes-track reveal-stagger" tabindex="0">
+                        <figure class="quote-card">
+                            <blockquote>
+                                <p>Andrew has an astute, human-first approach. He connects with you deeply before working toward solutions for whatever you're facing.</p>
+                            </blockquote>
+                            <figcaption>AI Product Designer</figcaption>
+                        </figure>
+                        <figure class="quote-card">
+                            <blockquote>
+                                <p>Andrew embodies the best of what a design culture can be: the person who most clearly represents the values, history, and heart of a design team.</p>
+                            </blockquote>
+                            <figcaption>VP, Design</figcaption>
+                        </figure>
+                        <figure class="quote-card">
+                            <blockquote>
+                                <p>The energy Andrew brings to every room is contagious. Working alongside him made the whole team better.</p>
+                            </blockquote>
+                            <figcaption>Senior Director, Design</figcaption>
+                        </figure>
+                        <figure class="quote-card">
+                            <blockquote>
+                                <p>Andrew is a tremendous part of the cultural fabric of any org he's part of. His presence is felt long after he's moved on.</p>
+                            </blockquote>
+                            <figcaption>Senior Design Manager</figcaption>
+                        </figure>
+                        <figure class="quote-card">
+                            <blockquote>
+                                <p>Andrew is a wonderful person in this world. Watching him grow, and being trusted to grow alongside him, was a gift.</p>
+                            </blockquote>
+                            <figcaption>Staff Designer</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="quotes-controls" hidden>
+                        <button type="button" class="quotes-btn" data-quotes-prev aria-label="Previous quotes">
+                            <span aria-hidden="true">&larr;</span>
+                        </button>
+                        <button type="button" class="quotes-btn" data-quotes-next aria-label="More quotes">
+                            <span aria-hidden="true">&rarr;</span>
+                        </button>
                     </div>
                 </div>
             </div>

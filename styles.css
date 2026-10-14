@@ -924,31 +924,51 @@ h2 .highlight {
 }
 
 /* ---------- INTRO VIDEO ----------
-   Hidden in the markup; site.js reveals it once the video file is on
-   the server. Never autoplays. */
+   A vertical (9:16) clip. On wide screens it sits in its own column
+   beside the hero copy; on phones it follows the call to action. Never
+   autoplays, and its captions are burned into the video. */
 .intro-video {
     margin-top: 48px;
-    max-width: 560px;
-}
-
-.intro-video[hidden] {
-    display: none;
+    width: 100%;
+    max-width: 280px;
 }
 
 .intro-video video {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
     border-radius: 20px;
     background: rgba(var(--text-rgb), 0.08);
     border: 1px solid rgba(var(--accent-rgb), 0.35);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
 .intro-video figcaption {
     margin-top: 12px;
     font-size: 14px;
+    line-height: 1.5;
     color: rgba(var(--text-rgb), 0.75);
+}
+
+@media (min-width: 901px) {
+    .hero-with-video {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 64px;
+        align-items: center;
+    }
+
+    /* The copy has its own column now, so it can use all of it. */
+    .hero-with-video h1,
+    .hero-with-video .hero-sub {
+        max-width: 100%;
+    }
+
+    .hero-with-video .intro-video {
+        margin-top: 0;
+    }
 }
 
 /* ---------- FOOTER ---------- */

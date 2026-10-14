@@ -76,18 +76,6 @@ if (photoSlots.length && "IntersectionObserver" in window) {
     });
 }
 
-// Intro video slot. Stays hidden until the video file is actually on the
-// server, so there is never an empty player on the page.
-document.querySelectorAll("[data-intro-video]").forEach(function (slot) {
-    var source = slot.querySelector("source");
-    if (!source || !window.fetch) return;
-    fetch(source.getAttribute("src"), { method: "HEAD" })
-        .then(function (response) {
-            if (response.ok) slot.hidden = false;
-        })
-        .catch(function () {});
-});
-
 // Scroll-triggered reveals
 var revealObserver = new IntersectionObserver(
     function (entries) {
