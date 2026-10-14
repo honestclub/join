@@ -76,8 +76,15 @@
     --accent: #4a6b5d;
     --accent-rgb: 74, 107, 93;
 
-    --highlight: #a87a3e;
-    --highlight-rgb: 168, 122, 62;
+    /* --highlight is emphasis that is read as text; --mark is purely
+       decorative (stars, underlines, rules). On light sections marigold
+       is far too pale to read as text, so emphasised words stay forest
+       and the marigold arrives through their scribble and the marks. */
+    --highlight: #0f2419;
+    --highlight-rgb: 15, 36, 25;
+
+    --mark: #f2b84b;
+    --mark-rgb: 242, 184, 75;
 
     --btn-bg: #0f2419;
     --btn-text: #f5f1e8;
@@ -110,6 +117,9 @@
 
     --highlight: #e8d5a3;
     --highlight-rgb: 232, 213, 163;
+
+    --mark: #e8d5a3;
+    --mark-rgb: 232, 213, 163;
 
     --btn-bg: #f5f1e8;
     --btn-text: #0f2419;
@@ -544,7 +554,7 @@ h1 {
 
 .section-eyebrow::before {
     content: "✳";
-    color: var(--highlight);
+    color: var(--mark);
     font-size: 16px;
     line-height: 1;
     transform: translateY(-1.5px);
@@ -792,7 +802,7 @@ h2 .highlight {
 .footer a {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: rgba(var(--highlight-rgb), 0.6);
+    text-decoration-color: rgba(var(--mark-rgb), 0.6);
     text-decoration-thickness: 1.5px;
     text-underline-offset: 3px;
     transition:
@@ -1085,7 +1095,7 @@ h2 .highlight {
 .breadcrumb a {
     color: rgba(var(--text-rgb), 0.7);
     text-decoration: none;
-    border-bottom: 1px solid rgba(var(--highlight-rgb), 0.4);
+    border-bottom: 1px solid rgba(var(--mark-rgb), 0.4);
     transition: color 0.3s ease;
 }
 
@@ -1202,7 +1212,7 @@ h2 .highlight {
 
 .related-list a:hover {
     color: var(--highlight);
-    border-color: rgba(var(--highlight-rgb), 0.7);
+    border-color: rgba(var(--mark-rgb), 0.7);
 }
 
 @media (max-width: 880px) {
@@ -1438,7 +1448,7 @@ h2 .highlight {
 
 .footer-nav a:hover {
     color: var(--highlight);
-    border-color: rgba(var(--highlight-rgb), 0.6);
+    border-color: rgba(var(--mark-rgb), 0.6);
 }
 
 @media (max-width: 880px) {
@@ -1761,7 +1771,7 @@ h2 .highlight {
 .package-note a {
     color: var(--highlight);
     text-decoration: underline;
-    text-decoration-color: rgba(var(--highlight-rgb), 0.45);
+    text-decoration-color: rgba(var(--mark-rgb), 0.45);
     text-decoration-thickness: 1.5px;
     text-underline-offset: 3px;
     transition:
@@ -1770,7 +1780,7 @@ h2 .highlight {
 }
 
 .package-note a:hover {
-    text-decoration-color: var(--highlight);
+    text-decoration-color: var(--mark);
 }
 
 /* ---------- HONEST SESSIONS SIGNUP ----------
@@ -2133,7 +2143,7 @@ h2 .highlight {
 .ideal-card-text a {
     color: var(--highlight);
     text-decoration: underline;
-    text-decoration-color: rgba(var(--highlight-rgb), 0.45);
+    text-decoration-color: rgba(var(--mark-rgb), 0.45);
     text-decoration-thickness: 1.5px;
     text-underline-offset: 3px;
     transition:
@@ -2143,7 +2153,7 @@ h2 .highlight {
 
 .inline-link:hover,
 .ideal-card-text a:hover {
-    text-decoration-color: var(--highlight);
+    text-decoration-color: var(--mark);
 }
 
 @media (max-width: 880px) {
@@ -2206,7 +2216,7 @@ h2 .highlight {
     bottom: 8px;
     width: 2px;
     border-radius: 2px;
-    background: var(--highlight);
+    background: var(--mark);
     opacity: 0;
     transform: scaleY(0.4);
     transition:
@@ -2260,7 +2270,7 @@ h2 .highlight {
 }
 
 .agreement-print:hover {
-    border-color: var(--highlight);
+    border-color: var(--mark);
     color: var(--highlight);
 }
 
@@ -2380,8 +2390,8 @@ h2 .highlight {
 }
 
 .agreement-callout {
-    background: rgba(var(--highlight-rgb), 0.1);
-    border-left: 3px solid var(--highlight);
+    background: rgba(var(--mark-rgb), 0.1);
+    border-left: 3px solid var(--mark);
     border-radius: 4px;
     padding: 24px 28px 8px;
     margin-bottom: 24px;
