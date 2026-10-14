@@ -2156,6 +2156,15 @@ h1 {
     font-weight: 600;
 }
 
+.agreement-body ul {
+    margin: 0 0 18px;
+    padding-left: 22px;
+}
+
+.agreement-body li {
+    margin-bottom: 10px;
+}
+
 .agreement-lede {
     font-size: 20px;
     line-height: 1.6;
