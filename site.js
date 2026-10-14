@@ -29,6 +29,65 @@ document.querySelectorAll("img:not(.about-face)").forEach(function (img) {
     }
 });
 
+// Heading scribbles. The CSS only hides them for drawing in once this
+// class is on the page, so they never go missing if this script fails.
+var scribbles = document.querySelectorAll("h1 .highlight, h2 .highlight");
+if (scribbles.length && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("scribbles-ready");
+    var scribbleObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-drawn");
+                scribbleObserver.unobserve(entry.target);
+            });
+        },
+        { rootMargin: "0px 0px -15% 0px" }
+    );
+    scribbles.forEach(function (el) {
+        scribbleObserver.observe(el);
+    });
+}
+
+// Photo slots. An image with data-photo shows its landscape fallback until
+// that file exists on the server; then the real photo (and its alt text)
+// swaps in. Each slot is only checked as it nears the screen, so pages
+// without new photos cost nothing until someone scrolls there.
+var photoSlots = document.querySelectorAll("img[data-photo]");
+if (photoSlots.length && "IntersectionObserver" in window) {
+    var photoObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var img = entry.target;
+                photoObserver.unobserve(img);
+                var probe = new Image();
+                probe.onload = function () {
+                    img.src = img.getAttribute("data-photo");
+                    img.alt = img.getAttribute("data-photo-alt") || img.alt;
+                };
+                probe.src = img.getAttribute("data-photo");
+            });
+        },
+        { rootMargin: "400px 0px" }
+    );
+    photoSlots.forEach(function (img) {
+        photoObserver.observe(img);
+    });
+}
+
+// Intro video slot. Stays hidden until the video file is actually on the
+// server, so there is never an empty player on the page.
+document.querySelectorAll("[data-intro-video]").forEach(function (slot) {
+    var source = slot.querySelector("source");
+    if (!source || !window.fetch) return;
+    fetch(source.getAttribute("src"), { method: "HEAD" })
+        .then(function (response) {
+            if (response.ok) slot.hidden = false;
+        })
+        .catch(function () {});
+});
+
 // Scroll-triggered reveals
 var revealObserver = new IntersectionObserver(
     function (entries) {
