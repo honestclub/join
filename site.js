@@ -29,6 +29,26 @@ document.querySelectorAll("img:not(.about-face)").forEach(function (img) {
     }
 });
 
+// Heading scribbles. The CSS only hides them for drawing in once this
+// class is on the page, so they never go missing if this script fails.
+var scribbles = document.querySelectorAll("h1 .highlight, h2 .highlight");
+if (scribbles.length && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("scribbles-ready");
+    var scribbleObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-drawn");
+                scribbleObserver.unobserve(entry.target);
+            });
+        },
+        { rootMargin: "0px 0px -15% 0px" }
+    );
+    scribbles.forEach(function (el) {
+        scribbleObserver.observe(el);
+    });
+}
+
 // Photo slots. An image with data-photo shows its landscape fallback until
 // that file exists on the server; then the real photo (and its alt text)
 // swaps in. Each slot is only checked as it nears the screen, so pages
