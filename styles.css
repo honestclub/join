@@ -214,6 +214,10 @@ body.loaded .bg-hero::before {
 
 .bg-alt {
     background: var(--bg-alt);
+    /* The gold reads at 2.4:1 on sage; this deeper gold keeps highlighted
+       words in section titles above the 3:1 WCAG large-text minimum. */
+    --highlight: #7a5626;
+    --highlight-rgb: 122, 86, 38;
 }
 
 .bg-base {
