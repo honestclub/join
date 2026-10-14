@@ -1406,145 +1406,155 @@ h2 .highlight {
     margin-bottom: 18px;
 }
 
-/* ---------- PLAN TABLE ----------
-   The one on one offers as a compact comparison: three columns, the
-   recommended one lifted by a banner across its top. The other two
-   drop by the banner's height so all three bodies line up. */
-.plan-grid {
-    --plan-banner-h: 38px;
+/* ---------- ONE ON ONE OFFERS ----------
+   Monthly Coaching leads as a dark panel; the 6-Month Package and the
+   Single Session sit beneath it, lighter and smaller, as alternatives.
+   The panel takes the dark theme tokens, so its text flips on its own. */
+.offers {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-    align-items: stretch;
+    gap: 16px;
 }
 
-.plan {
-    display: flex;
-    flex-direction: column;
-    margin-top: var(--plan-banner-h);
-    background: var(--bg-main);
-    border: 1px solid rgba(var(--accent-rgb), 0.22);
-    border-radius: 18px;
-    overflow: hidden;
-    transition: border-color 0.3s ease;
-}
-
-.plan-featured {
-    margin-top: 0;
-    border: 2px solid var(--text);
-    box-shadow: 0 12px 30px rgba(15, 36, 25, 0.12);
-}
-
-.plan-banner {
-    height: var(--plan-banner-h);
-    display: flex;
+.offer-main {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 40px;
     align-items: center;
-    justify-content: center;
-    background: var(--text);
-    color: var(--bg-main);
+    padding: 40px 44px;
+    border-radius: 22px;
+    background: var(--bg-main);
+    color: var(--text);
+    box-shadow: 0 14px 34px rgba(15, 36, 25, 0.18);
+}
+
+.offer-flag {
+    display: inline-block;
     font-family: "DM Mono", ui-monospace, monospace;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: 1.4px;
     text-transform: uppercase;
+    color: #0f2419;
+    background: var(--marigold);
+    border-radius: 999px;
+    padding: 6px 12px;
+    margin-bottom: 18px;
 }
 
-.plan-inner {
-    flex: 1;
+.offer-main h3 {
+    font-family: "Gooper", Georgia, serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.offer-main p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba(var(--text-rgb), 0.82);
+    max-width: 44ch;
+}
+
+.offer-main-side {
     display: flex;
     flex-direction: column;
-    padding: 28px 26px 30px;
+    gap: 24px;
+    align-items: flex-start;
 }
 
-.plan h3 {
-    font-family: "Gooper", Georgia, serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--text);
-    line-height: 1.2;
-    letter-spacing: -0.3px;
+.offer-facts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.offer-facts li {
+    font-size: 15px;
+    color: rgba(var(--text-rgb), 0.9);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(var(--highlight-rgb), 0.18);
+}
+
+.offer-facts li:first-child {
+    border-top: 1px solid rgba(var(--highlight-rgb), 0.18);
+}
+
+.offer-minor-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.offer-minor {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 26px;
+    border: 1px solid rgba(var(--accent-rgb), 0.22);
+    border-radius: 18px;
+}
+
+.offer-minor-meta {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent);
     margin-bottom: 8px;
 }
 
-.plan-line {
+.offer-minor h3 {
+    font-family: "Gooper", Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.25;
+    margin-bottom: 6px;
+}
+
+.offer-minor p {
     font-size: 15px;
     line-height: 1.55;
-    color: rgba(var(--text-rgb), 0.78);
-    min-height: 3.1em;
+    color: rgba(var(--text-rgb), 0.75);
 }
 
-.plan-cadence {
-    margin-top: 22px;
-    font-family: "Gooper", Georgia, serif;
-    font-size: 24px;
-    line-height: 1.2;
+.offer-minor-link {
+    margin-top: auto;
+    padding-top: 14px;
+    align-self: flex-start;
+    font-size: 15px;
+    font-weight: 500;
     color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: rgba(var(--mark-rgb), 0.6);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
 }
 
-.plan-cadence span {
-    display: block;
-    margin-top: 4px;
-    font-family: "DM Sans", system-ui, sans-serif;
-    font-size: 14px;
-    color: rgba(var(--text-rgb), 0.65);
+.offer-minor-link .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
-.plan .btn-card {
-    align-self: stretch;
-    justify-content: center;
-}
-
-.btn-card.btn-card-outline {
-    background: transparent;
-    color: var(--text);
-    box-shadow: inset 0 0 0 1.5px var(--text);
-}
-
-.btn-card.btn-card-outline:hover {
-    background: rgba(var(--text-rgb), 0.06);
-}
-
-.plan-checks {
-    list-style: none;
-    margin: 24px 0 0;
-    padding: 20px 0 0;
-    border-top: 1px solid rgba(var(--accent-rgb), 0.2);
-    display: grid;
-    gap: 10px;
-}
-
-.plan-checks li {
-    position: relative;
-    padding-left: 24px;
-    font-size: 14.5px;
-    line-height: 1.5;
-    color: rgba(var(--text-rgb), 0.85);
-}
-
-.plan-checks li::before {
-    content: "";
-    position: absolute;
-    left: 3px;
-    top: 4px;
-    width: 6px;
-    height: 11px;
-    border: solid var(--accent);
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+.offer-minor-link:hover .arrow {
+    transform: translateX(3px);
 }
 
 @media (max-width: 880px) {
-    .plan-grid {
+    .offer-main {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 24px;
+        padding: 30px 26px;
     }
 
-    .plan {
-        margin-top: 0;
+    .offer-main h3 {
+        font-size: 30px;
     }
 
-    .plan-line {
-        min-height: 0;
+    .offer-minor-row {
+        grid-template-columns: 1fr;
     }
 }
 
