@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coaching Agreement | Honest Club</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        <meta name="theme-color" content="#0f2419" />
+        <meta name="description" content="The Honest Club coaching agreement you accept at checkout: what coaching is, your plan, payment, scheduling, cancellations and refunds, confidentiality, and legal terms." />
+        <meta name="author" content="Andrew Tolentino" />
+        <!-- Linked from Stripe Checkout as the terms of service. Public, but not a page people should land on from search. -->
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://honestclub.co/agreement/" />
+
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/Gooper7-Regular.woff2" crossorigin />
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/DMSans-latin.woff2" crossorigin />
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+        <main id="main">
+            <!-- HERO -->
+            <section class="section-band bg-hero hero-agreement" data-theme="dark">
+                <div class="logo-bar">
+                    <a href="/" class="logo-text">honest club</a>
+                </div>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="/">Honest Club</a> / <span>Coaching agreement</span>
+                </nav>
+
+                <div class="container hero">
+                    <h1>Coaching Agreement</h1>
+                    <p class="hero-sub">The terms you accept at checkout, written to be read. It covers every plan: a Single Session, a Coaching Package, or Monthly Coaching.</p>
+                    <p class="hero-meta">Version of <time datetime="2026-10-14">October 14, 2026</time></p>
+                </div>
+            </section>
+
+            <!-- AGREEMENT -->
+            <section class="section-band bg-base">
+                <div class="container agreement">
+                    <nav class="agreement-toc" aria-label="Sections">
+                        <div class="section-eyebrow">Contents</div>
+                        <ol>
+                            <li><a href="#coaching">Coaching, and what it isn&rsquo;t</a></li>
+                            <li><a href="#plan">Your plan</a></li>
+                            <li><a href="#payment">Payment</a></li>
+                            <li><a href="#scheduling">Scheduling &amp; missed sessions</a></li>
+                            <li><a href="#cancelling">Ending or cancelling</a></li>
+                            <li><a href="#confidentiality">Confidentiality</a></li>
+                            <li><a href="#legal">Legal terms</a></li>
+                            <li><a href="#agree">How you agree</a></li>
+                        </ol>
+                        <button type="button" class="agreement-print" onclick="window.print()">Print or save as PDF</button>
+                    </nav>
+
+                    <article class="agreement-body">
+                        <p class="agreement-lede">
+                            This agreement is between <strong>Andrew Tolentino, DBA Honest Club</strong> (&ldquo;Coach,&rdquo; &ldquo;I&rdquo;) and the person who completes checkout (&ldquo;Client,&rdquo; &ldquo;you&rdquo;). It covers every Honest Club plan: a <strong>Single Session</strong>, a <strong>Coaching Package</strong>, or <strong>Monthly Coaching</strong>. Where a section only applies to one plan, it says so.
+                        </p>
+                        <p>
+                            It takes effect when you agree to it at checkout and complete payment. The plan, rate, and amount on your checkout page and Stripe receipt are part of this agreement, and your receipt is your record of it.
+                        </p>
+
+                        <section id="coaching" class="agreement-section">
+                            <h2><span class="agreement-num">1</span>Coaching, and what it isn&rsquo;t</h2>
+                            <p>
+                                Coaching is a collaborative, forward-looking conversation to help you gain clarity and act on your goals. I&rsquo;m trained through CTI&rsquo;s Co-Active program (CAP credential). <strong>It is not therapy, counseling, medical care, substance-abuse treatment, legal advice, or financial or investment advice.</strong> I don&rsquo;t diagnose or treat anything, nothing I say substitutes for a licensed professional, and you shouldn&rsquo;t stop or change treatment based on our conversations. If another service would serve you better, I&rsquo;ll say so.
+                            </p>
+                            <p>
+                                <strong>Every decision you make is yours, as are the outcomes.</strong> If you&rsquo;re in crisis or thinking about harming yourself, contact emergency services or call or text <a class="inline-link" href="tel:988">988</a>. I&rsquo;m not an emergency service and I&rsquo;m not available for urgent support between sessions. I&rsquo;ll show up prepared and honest; you&rsquo;ll show up on time, do the work between sessions, pay on schedule, and tell me when something isn&rsquo;t working. You confirm you&rsquo;re at least eighteen.
+                            </p>
+                        </section>
+
+                        <section id="plan" class="agreement-section">
+                            <h2><span class="agreement-num">2</span>Your plan</h2>
+                            <div class="plan-table-wrap">
+                                <table class="plan-table">
+                                    <thead>
+                                        <tr>
+                                            <td></td>
+                                            <th scope="col">Single Session</th>
+                                            <th scope="col">Coaching Package</th>
+                                            <th scope="col">Monthly Coaching</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Sessions</th>
+                                            <td data-plan="Single Session">One 55-minute session</td>
+                                            <td data-plan="Coaching Package">The number of 55-minute sessions listed for your package at checkout</td>
+                                            <td data-plan="Monthly Coaching">55 minutes, every other week</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Term</th>
+                                            <td data-plan="Single Session">30 days from payment</td>
+                                            <td data-plan="Coaching Package">The term listed for your package at checkout, counted from your payment date</td>
+                                            <td data-plan="Monthly Coaching">Month to month, until either of us cancels</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Price</th>
+                                            <td data-plan="Single Session">As shown at checkout</td>
+                                            <td data-plan="Coaching Package">As shown at checkout</td>
+                                            <td data-plan="Monthly Coaching">As shown at checkout, per month</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Billing</th>
+                                            <td data-plan="Single Session">One-time payment</td>
+                                            <td data-plan="Coaching Package">One-time payment</td>
+                                            <td data-plan="Monthly Coaching"><strong>Renews automatically every month</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>
+                                All sessions are by Google Meet. Between sessions I&rsquo;m available for brief email or text check-ins, usually within two business days. That&rsquo;s short messages, not coaching by text, and not crisis or after-hours support.
+                            </p>
+
+                            <h3>Single Session and Coaching Package</h3>
+                            <p>
+                                <strong>Sessions expire.</strong> Every session must be held within your term. Anything unused at the end of it is forfeited unless we agree in writing to extend, and booking within the term is on you. Package sessions usually happen every one to two weeks.
+                            </p>
+
+                            <h3>Monthly Coaching</h3>
+                            <p>
+                                This is a <strong>flat monthly fee for ongoing coaching every other week</strong>, not a set number of sessions, so how many land in a given billing period follows the calendar. <strong>Skipped weeks don&rsquo;t stack up.</strong> Sessions you don&rsquo;t take aren&rsquo;t banked, credited, or refunded.
+                            </p>
+                        </section>
+
+                        <section id="payment" class="agreement-section">
+                            <h2><span class="agreement-num">3</span>Payment</h2>
+                            <p>
+                                You pay the amount shown at checkout for the plan and rate you choose, by card or ACH through Stripe. Every rate gets the same coaching. Coaching begins once payment is received.
+                            </p>
+
+                            <h3>Single Session and Coaching Package</h3>
+                            <p>
+                                <strong>Paid in full at checkout, before the first session.</strong> This is a one-time payment. There&rsquo;s no subscription and no recurring charge.
+                            </p>
+
+                            <h3>Monthly Coaching</h3>
+                            <div class="agreement-callout" role="note" aria-labelledby="auto-renewal">
+                                <p class="agreement-callout-title" id="auto-renewal">Automatic renewal: please read</p>
+                                <p>
+                                    <strong>Monthly Coaching renews by itself.</strong> By completing checkout, you authorize Honest Club to charge your payment method the monthly amount shown at checkout today, and again automatically on the same day of every month after that, with no further notice and no end date, until you cancel. If that day doesn&rsquo;t exist in a month, you&rsquo;re charged on the last day of that month.
+                                </p>
+                                <p>
+                                    <strong>Cancel any time</strong> by emailing <a class="inline-link" href="mailto:andrew@honestclub.co">andrew@honestclub.co</a> or through the billing link in your Stripe receipt. Cancelling takes effect at the end of your current billing period, the day before your next charge date (<a class="inline-link" href="#cancelling">Section 5</a>).
+                                </p>
+                            </div>
+                            <p>
+                                Your card or bank account stays on file with Stripe. I&rsquo;ll give you thirty (30) days&rsquo; notice before any price change. If a payment fails and isn&rsquo;t resolved within seven (7) days, sessions pause until it clears.
+                            </p>
+
+                            <h3>All plans</h3>
+                            <p>
+                                <strong>Billing questions come to me first.</strong> You agree to give me ten (10) business days to sort it out before filing a chargeback. Disputing sessions already held is a breach, and you stay responsible for the amount plus processor fees. Fees exclude taxes. Invoice and W-9 on request.
+                            </p>
+                        </section>
+
+                        <section id="scheduling" class="agreement-section">
+                            <h2><span class="agreement-num">4</span>Scheduling &amp; missed sessions</h2>
+                            <p>
+                                Give me <strong>24 hours&rsquo; notice</strong> to reschedule and the session doesn&rsquo;t count as used. A session cancelled later than that, or missed entirely, counts as delivered and isn&rsquo;t refunded, credited, or rescheduled. Being more than fifteen minutes late without a word may be treated as a no-show. <strong>You get one grace exception</strong>, and if it becomes a pattern we&rsquo;ll talk about it honestly. If I cancel, I&rsquo;ll reschedule at your convenience and it never counts against you.
+                            </p>
+                        </section>
+
+                        <section id="cancelling" class="agreement-section">
+                            <h2><span class="agreement-num">5</span>Ending or cancelling</h2>
+
+                            <h3>Single Session</h3>
+                            <p>
+                                If you cancel with at least 24 hours&rsquo; notice and would rather not reschedule, I&rsquo;ll refund your payment in full. After that, <a class="inline-link" href="#scheduling">Section 4</a> applies.
+                            </p>
+
+                            <h3>Coaching Package</h3>
+                            <p>
+                                Either of us can end the package at any time, in writing. Sessions unused in the <strong>first half</strong> of your package are refundable pro-rata. Those in the <strong>second half</strong> are not, and sessions that expire at the end of the term are forfeited.
+                            </p>
+
+                            <h3>Monthly Coaching</h3>
+                            <p>
+                                Cancel any time by emailing <a class="inline-link" href="mailto:andrew@honestclub.co">andrew@honestclub.co</a> or through the billing link in your Stripe receipt. No notice period, no fee, no explanation needed. Future charges stop and your membership continues through the end of your current billing period, which runs up to the day before your next charge date. For example, if you subscribed on the 20th and cancel on the 5th, coaching continues through the 19th and you aren&rsquo;t charged again. <strong>Monthly fees are earned when charged and aren&rsquo;t refunded:</strong> a partial billing period isn&rsquo;t pro-rated, and sessions you didn&rsquo;t take aren&rsquo;t refunded or credited. That&rsquo;s the trade for month-to-month flexibility with no minimum. If I end your membership, I&rsquo;ll refund the pro-rated portion of the current billing period for sessions not yet held.
+                            </p>
+
+                            <h3>All plans</h3>
+                            <p>
+                                If I believe coaching isn&rsquo;t the right fit for what you need, I&rsquo;ll tell you directly, help you find a better resource, and refund everything you&rsquo;ve paid for and haven&rsquo;t used.
+                            </p>
+                        </section>
+
+                        <section id="confidentiality" class="agreement-section">
+                            <h2><span class="agreement-num">6</span>Confidentiality</h2>
+                            <p>
+                                What we discuss stays between us, and I won&rsquo;t share it with your employer or anyone else without your written permission. Three exceptions: if I reasonably believe you&rsquo;re at risk of harm to yourself or others; if required by law, subpoena, or court order; and with my coaching supervisor, anonymized. <strong>Coaching isn&rsquo;t legally privileged</strong> the way it is with an attorney or therapist, so I can&rsquo;t promise a court won&rsquo;t compel disclosure. Neither of us records a session, including with AI note-takers, without the other&rsquo;s permission, and I won&rsquo;t use your name or story in marketing without your written consent.
+                            </p>
+                        </section>
+
+                        <section id="legal" class="agreement-section">
+                            <h2><span class="agreement-num">7</span>Legal terms</h2>
+                            <p>
+                                <strong>No guarantee of results.</strong> Outcomes depend on your own effort, and I guarantee no specific result: no job, promotion, raise, or income level. Services are provided &ldquo;as is,&rdquo; and to the fullest extent permitted by law I disclaim all warranties, express or implied. My total liability for any claim arising from this agreement is capped at the fees you actually paid me in the three (3) months before it arose, and neither of us is liable for indirect, incidental, special, consequential, or punitive damages, or for lost profits, income, or reputation. You&rsquo;ll indemnify me against third-party claims arising from decisions you make in connection with coaching. None of this limits liability for fraud, willful misconduct, or gross negligence.
+                            </p>
+                            <p>
+                                I&rsquo;m an independent contractor, not your employee or partner, responsible for my own taxes and insurance. Neither of us binds the other, or may assign this agreement, without written consent. Materials I share stay my intellectual property, licensed to you for personal, non-commercial use; what you create is yours.
+                            </p>
+                            <p>
+                                California law governs. We resolve things by talking first, then by mediation over video if that fails within thirty (30) days, then in the courts of San Francisco County, California, which may sit remotely. Small claims stays open to either of us. If you&rsquo;re outside California or the U.S., any mandatory consumer-protection right in your home jurisdiction that can&rsquo;t be waived prevails over this paragraph, and the rest still stands. This is our complete agreement on coaching. Changes must be in writing (email counts). Notices go to <a class="inline-link" href="mailto:andrew@honestclub.co">andrew@honestclub.co</a> and the email you used at checkout. If any part is unenforceable, the rest stands. Letting something slide once doesn&rsquo;t waive it. Sections 6 and 7 survive the end of this agreement. Neither of us is liable for delays beyond reasonable control.
+                            </p>
+                        </section>
+
+                        <section id="agree" class="agreement-section">
+                            <h2><span class="agreement-num">8</span>How you agree</h2>
+                            <p>
+                                By checking the box at checkout and completing payment, you confirm you&rsquo;ve read and agree to this agreement, including the payment terms in <a class="inline-link" href="#payment">Section 3</a> (and, for Monthly Coaching, the automatic monthly billing) and the refund and cancellation terms in <a class="inline-link" href="#cancelling">Section 5</a>. Your Stripe receipt confirms your plan, rate, and date. If you&rsquo;d like a countersigned copy for your records or for reimbursement, just ask and I&rsquo;ll send one. I&rsquo;m glad you&rsquo;re here, and I&rsquo;m looking forward to our first conversation.
+                            </p>
+                        </section>
+
+                        <p class="agreement-sign">
+                            Andrew Tolentino, DBA Honest Club<br />
+                            <a class="inline-link" href="mailto:andrew@honestclub.co">andrew@honestclub.co</a> &middot; honestclub.co
+                        </p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer-band" data-theme="dark">
+            <div class="footer">
+                <nav class="footer-nav" aria-label="Site">
+                    <div class="footer-nav-group">
+                        <h2 class="footer-nav-title">Coaching</h2>
+                        <ul>
+                            <li><a href="/coaching-packages/">Packages</a></li>
+                            <li><a href="/coaching-for-designers/">For designers</a></li>
+                            <li><a href="/coaching-for-healthcare-professionals/">For healthcare</a></li>
+                            <li><a href="/career-transition-coaching/">Career transitions</a></li>
+                            <li><a href="/leadership-coaching/">Leadership</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-group">
+                        <h2 class="footer-nav-title">Groups &amp; companies</h2>
+                        <ul>
+                            <li><a href="/honest-sessions/">Honest Sessions</a></li>
+                            <li><a href="/coaching-for-companies/">For companies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-group">
+                        <h2 class="footer-nav-title">Honest Club</h2>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/story/">My story</a></li>
+                            <li><a href="https://cal.com/honest-club/discovery-call">Book a call</a></li>
+                            <li><a href="https://www.instagram.com/joinhonestclub/" rel="me noopener" target="_blank">Instagram</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <p>
+                    Want to say hi or ask a question?<br />
+                    Reach out:
+                    <a href="mailto:hello@honestclub.co">hello@honestclub.co</a>
+                </p>
+                <p class="copyright">
+                    Made with care (and a little cake) in San Francisco
+                    &#127856;<br />
+                    &copy; 2026 Honest Club. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script src="/site.js" defer></script>
+    </body>
+</html>
