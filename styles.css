@@ -2074,6 +2074,29 @@ h1 {
     font-size: 15px;
     line-height: 1.5;
     padding: 6px 0 6px 22px;
+    position: relative;
+}
+
+/* Marker for the section in view, set by site.js as you scroll. */
+.agreement-toc li::after {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--highlight);
+    opacity: 0;
+    transform: scaleY(0.4);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.agreement-toc li.is-active::after {
+    opacity: 1;
+    transform: scaleY(1);
 }
 
 .agreement-toc li::before {
@@ -2094,6 +2117,11 @@ h1 {
 
 .agreement-toc a:hover {
     color: var(--highlight);
+}
+
+.agreement-toc li.is-active a {
+    color: var(--text);
+    font-weight: 500;
 }
 
 .agreement-print {
@@ -2173,9 +2201,13 @@ h1 {
     margin-bottom: 28px;
 }
 
+/* Fixed layout so the three plan columns share the width evenly
+   instead of sizing to whichever cell has the most words. */
 .plan-table {
     width: 100%;
-    border-collapse: collapse;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
     font-size: 15px;
     line-height: 1.5;
 }
@@ -2184,15 +2216,28 @@ h1 {
 .plan-table td {
     text-align: left;
     vertical-align: top;
-    padding: 14px 16px 14px 0;
-    border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
+    padding: 14px 16px;
 }
 
 .plan-table thead th {
     font-family: "Gooper", Georgia, serif;
     font-size: 18px;
     font-weight: 400;
-    border-bottom-color: rgba(var(--text-rgb), 0.4);
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(var(--text-rgb), 0.4);
+}
+
+/* Alternate rows get a soft tint so each one reads as its own band. */
+.plan-table tbody tr:nth-child(odd) > * {
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+.plan-table tbody tr > :first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.plan-table tbody tr > :last-child {
+    border-radius: 0 6px 6px 0;
 }
 
 .plan-table tbody th {
@@ -2203,7 +2248,7 @@ h1 {
     letter-spacing: 1.5px;
     color: var(--accent);
     padding-top: 17px;
-    width: 96px;
+    width: 112px;
 }
 
 .agreement-callout {
@@ -2267,14 +2312,23 @@ h1 {
         width: auto;
     }
 
-    .plan-table tr {
-        padding: 8px 0 12px;
-        border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
+    .plan-table tbody tr {
+        padding: 10px 16px 14px;
+        border-radius: 6px;
+    }
+
+    .plan-table tbody tr:nth-child(odd) {
+        background: rgba(var(--accent-rgb), 0.1);
+    }
+
+    .plan-table tbody tr:nth-child(odd) > *,
+    .plan-table tbody tr > * {
+        background: none;
+        border-radius: 0;
     }
 
     .plan-table th,
     .plan-table td {
-        border-bottom: none;
         padding: 4px 0;
     }
 

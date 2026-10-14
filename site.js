@@ -201,3 +201,51 @@ document.querySelectorAll(".quotes").forEach(function (root) {
         { threshold: 0.5 }
     ).observe(root);
 });
+
+// Coaching agreement contents. Marks the section you're reading: the
+// last one whose heading has passed the upper third of the screen, or
+// the final one once you hit the bottom, since it is too short to get
+// there on its own.
+document.querySelectorAll(".agreement-toc").forEach(function (toc) {
+    var links = Array.prototype.slice.call(toc.querySelectorAll("a[href^='#']"));
+    var sections = links.map(function (link) {
+        return document.querySelector(link.getAttribute("href"));
+    });
+    var active = -1;
+    var queued = false;
+
+    function update() {
+        queued = false;
+        var line = window.innerHeight / 3;
+        var current = -1;
+        sections.forEach(function (section, i) {
+            if (section && section.getBoundingClientRect().top <= line) current = i;
+        });
+        var bottom =
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 2;
+        var last = sections[sections.length - 1];
+        if (bottom && last && last.getBoundingClientRect().top < window.innerHeight) {
+            current = sections.length - 1;
+        }
+        if (current === active) return;
+        active = current;
+        links.forEach(function (link, i) {
+            var on = i === current;
+            link.parentElement.classList.toggle("is-active", on);
+            if (on) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+        });
+    }
+
+    function schedule() {
+        if (!queued) {
+            queued = true;
+            requestAnimationFrame(update);
+        }
+    }
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    update();
+});
