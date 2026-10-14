@@ -83,6 +83,16 @@
     --btn-text: #f5f1e8;
     --btn-hover-bg: #1a3a2e;
 
+    /* Coral is the one bright accent: primary buttons, the hero
+       scribble, and small highlight moments. Never body text or large
+       backgrounds. Forest on coral is 5.7:1, forest on the hover
+       shade 6.8:1, so both pass WCAG AA for button text. */
+    --coral: #e87a5d;
+    --coral-hover: #ee8d73;
+    --primary-bg: var(--coral);
+    --primary-text: #0f2419;
+    --primary-hover-bg: var(--coral-hover);
+
     --hero-img-opacity: 0.3;
     --grain-opacity: 0.06;
 }
@@ -345,8 +355,7 @@ body.loaded .bg-hero::before {
         transform: none;
     }
 
-    .btn-primary:hover .arrow,
-    .wave {
+    .btn-primary:hover .arrow {
         animation: none;
     }
 
@@ -391,8 +400,14 @@ body.loaded .bg-hero::before {
 
 .wave {
     display: inline-block;
-    animation: wave 2s ease-in-out infinite;
     transform-origin: 70% 70%;
+}
+
+/* One wave hello as the hero settles in, then it rests. */
+@media (prefers-reduced-motion: no-preference) {
+    .wave {
+        animation: wave 1.6s ease-in-out 0.9s 1 both;
+    }
 }
 
 @keyframes wave {
@@ -425,26 +440,48 @@ h1 {
     transition: color 0.5s ease;
 }
 
-/* Rotating headline phrase */
-/* Inline slot for the rotating word. Its min-width is set in JS
-   to the widest word so line breaks stay identical for every
-   word, so there is no vertical shift and no reserved space
-   below. */
-.rotator {
+/* Hand-drawn coral underline under one phrase of the hero
+   headline. The phrase keeps the wordmark's italic, and nowrap keeps
+   the scribble from splitting across two lines. */
+.scribble {
+    position: relative;
     display: inline-block;
     white-space: nowrap;
     font-style: italic;
     color: var(--highlight);
 }
 
-.rotator-word {
-    display: inline-block;
-    will-change: opacity, transform;
+.scribble-line {
+    position: absolute;
+    left: -2%;
+    bottom: -0.16em;
+    width: 104%;
+    height: 0.32em;
+    overflow: visible;
+    pointer-events: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .rotator-word {
-        transition: none !important;
+.scribble-line path {
+    fill: none;
+    stroke: var(--coral);
+    stroke-width: 5;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+}
+
+/* Draws itself in once, left to right, after the hero fades up. A
+   clip wipe rather than a dash offset: dashes miscount on a stretched,
+   non-scaling stroke and stop short at some widths. */
+@media (prefers-reduced-motion: no-preference) {
+    .scribble-line {
+        clip-path: inset(-50% 100% -50% 0);
+        animation: scribble 0.9s cubic-bezier(0.65, 0, 0.35, 1) 1.1s forwards;
+    }
+}
+
+@keyframes scribble {
+    to {
+        clip-path: inset(-50% 0 -50% 0);
     }
 }
 
@@ -473,28 +510,48 @@ h1 {
     align-items: center;
     gap: 10px;
     padding: 16px 32px;
-    background: var(--btn-bg);
-    color: var(--btn-text);
+    background: var(--primary-bg);
+    color: var(--primary-text);
     text-decoration: none;
     border-radius: 999px;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.2px;
-    transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px) scale(1.03);
-    background: var(--btn-hover-bg);
+    background: var(--primary-hover-bg);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
 }
 
 .btn-primary .arrow {
     transition: transform 0.3s ease;
 }
 
-.btn-primary:hover .arrow {
-    animation: nudge 0.9s ease-in-out infinite;
+/* A little hop and a tilt on hover, and the arrow keeps nudging. */
+@media (prefers-reduced-motion: no-preference) {
+    .btn-primary {
+        transition:
+            background-color 0.3s ease,
+            box-shadow 0.3s ease,
+            transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px) rotate(-1.5deg) scale(1.03);
+    }
+
+    .btn-primary:hover .arrow {
+        animation: nudge 0.9s ease-in-out infinite;
+    }
 }
 
 @keyframes nudge {
@@ -556,6 +613,14 @@ h1 {
     position: relative;
     padding: 0 2px;
     transition: color 0.5s ease;
+}
+
+/* In display type, the emphasised word or two borrows the wordmark's
+   Gooper italic. Body-copy highlights stay upright. */
+h1 .highlight,
+h2 .highlight,
+.section-title .highlight {
+    font-style: italic;
 }
 
 
@@ -707,7 +772,7 @@ h1 {
     -webkit-backface-visibility: hidden;
 }
 
-.about-face-laughing {
+.about-face-back {
     transform: rotateY(180deg);
 }
 
@@ -817,6 +882,62 @@ h1 {
     margin: 0 auto 32px;
     max-width: 480px;
     transition: color 0.5s ease;
+}
+
+/* ---------- OPEN DOOR ----------
+   One quiet line after the closing CTA for people outside the niche.
+   Supporting text, not a section: no eyebrow, no heading. */
+.open-door-band {
+    padding: 40px 24px;
+}
+
+.open-door {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(var(--text-rgb), 0.75);
+}
+
+.open-door a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--coral);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.open-door a:hover {
+    text-decoration-thickness: 3px;
+}
+
+/* ---------- INTRO VIDEO ----------
+   Hidden in the markup; site.js reveals it once the video file is on
+   the server. Never autoplays. */
+.intro-video {
+    margin-top: 48px;
+    max-width: 560px;
+}
+
+.intro-video[hidden] {
+    display: none;
+}
+
+.intro-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    background: rgba(var(--text-rgb), 0.08);
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
+}
+
+.intro-video figcaption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: rgba(var(--text-rgb), 0.75);
 }
 
 /* ---------- FOOTER ---------- */
@@ -1700,18 +1821,18 @@ h1 {
 .signup-embed button[type="submit"] {
     font-family: inherit !important;
     border-radius: 10px !important;
-    background-color: var(--btn-bg) !important;
+    background-color: var(--primary-bg) !important;
 }
 
 .signup-embed .formkit-submit span,
 .signup-embed button[type="submit"] span {
-    color: var(--btn-text) !important;
+    color: var(--primary-text) !important;
     font-weight: 500;
 }
 
 .signup-embed .formkit-submit:hover,
 .signup-embed button[type="submit"]:hover {
-    background-color: var(--btn-hover-bg) !important;
+    background-color: var(--primary-hover-bg) !important;
 }
 
 .signup-fallback {
@@ -1867,9 +1988,9 @@ h1 {
     height: 30px;
     font-family: "Gooper", Georgia, serif;
     font-size: 52px;
+    font-style: italic;
     line-height: 1;
-    color: var(--highlight);
-    transition: color 0.5s ease;
+    color: var(--coral);
 }
 
 .quote-card blockquote p {
