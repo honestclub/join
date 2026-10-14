@@ -2180,11 +2180,10 @@ h1 {
     gap: 16px;
 }
 
+/* Same face and size as the heading, so the number reads as part of it. */
 .agreement-num {
-    font-family: "DM Mono", ui-monospace, monospace;
-    font-size: 15px;
     color: var(--highlight);
-    min-width: 20px;
+    min-width: 0.75em;
 }
 
 .agreement-section h3 {
