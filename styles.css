@@ -1476,6 +1476,24 @@ h2 .highlight {
     justify-content: flex-end;
 }
 
+.offer-main,
+.offer-minor {
+    transition:
+        border-color 0.3s ease,
+        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.3s ease;
+}
+
+.offer-main:hover,
+.offer-minor:hover {
+    transform: translateY(-6px);
+}
+
+.offer-minor:hover {
+    border-color: rgba(var(--accent-rgb), 0.45);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
 .offer-minor-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1533,9 +1551,6 @@ h2 .highlight {
     transition: transform 0.3s ease;
 }
 
-.offer-minor-link:hover .arrow {
-    transform: translateX(3px);
-}
 
 @media (max-width: 880px) {
     .offer-main {
@@ -1726,14 +1741,18 @@ h2 .highlight {
    headings inside an anchor. */
 .ideal-card:has(.card-link),
 .package-card:has(.btn-card),
-.offer-wide:has(.btn-card) {
+.offer-wide:has(.btn-card),
+.offer-main:has(.btn-primary),
+.offer-minor:has(.offer-minor-link) {
     position: relative;
     cursor: pointer;
 }
 
 .ideal-card .card-link::after,
 .package-card .btn-card::after,
-.offer-wide .btn-card::after {
+.offer-wide .btn-card::after,
+.offer-main .btn-primary::after,
+.offer-minor .offer-minor-link::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -1742,7 +1761,9 @@ h2 .highlight {
 
 .ideal-card:has(.card-link:focus-visible),
 .package-card:has(.btn-card:focus-visible),
-.offer-wide:has(.btn-card:focus-visible) {
+.offer-wide:has(.btn-card:focus-visible),
+.offer-main:has(.btn-primary:focus-visible),
+.offer-minor:has(.offer-minor-link:focus-visible) {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
 }
@@ -1751,7 +1772,9 @@ h2 .highlight {
    need a second focus ring of its own. */
 .ideal-card .card-link:focus-visible,
 .package-card .btn-card:focus-visible,
-.offer-wide .btn-card:focus-visible {
+.offer-wide .btn-card:focus-visible,
+.offer-main .btn-primary:focus-visible,
+.offer-minor .offer-minor-link:focus-visible {
     outline: none;
 }
 
@@ -1770,6 +1793,27 @@ h2 .highlight {
 .package-card:hover .btn-card,
 .offer-wide:hover .btn-card {
     background: var(--btn-hover-bg);
+}
+
+/* Same for the offer panel: its button keeps the colour change and the
+   arrow nudge, but not the primary button's hop and tilt, for the same
+   containing-block reason. */
+.offer-main:hover .btn-primary {
+    background: var(--primary-hover-bg);
+}
+
+.offer-main .btn-primary:hover {
+    transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .offer-main:hover .btn-primary .arrow {
+        animation: nudge 0.9s ease-in-out infinite;
+    }
+
+    .offer-minor:hover .offer-minor-link .arrow {
+        transform: translateX(3px);
+    }
 }
 
 
