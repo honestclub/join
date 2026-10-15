@@ -399,7 +399,7 @@ body.loaded .bg-hero::before {
     font-weight: 400;
     font-style: italic;
     letter-spacing: 0;
-    color: var(--highlight);
+    color: var(--marigold);
     text-decoration: none;
     transition: color 0.5s ease;
 }
