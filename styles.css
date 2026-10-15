@@ -66,6 +66,8 @@
 /* ---------- THEME TOKENS ---------- */
 /* Light theme: default for whole page */
 :root {
+    /* Inner padding shared by every card on the site. */
+    --card-pad: 34px;
     --bg-main: #f5f1e8;
     --bg-alt: #c8d2c5;
     --bg-footer: #c8d2c5;
@@ -669,7 +671,7 @@ h2 .highlight {
 }
 
 .ideal-card-body {
-    padding: 22px 22px 26px;
+    padding: var(--card-pad);
 }
 
 .ideal-card-title {
@@ -978,6 +980,12 @@ h2 .highlight {
     margin-top: 28px;
     font-size: 14px;
     color: rgba(var(--text-rgb), 0.65);
+}
+
+@media (max-width: 880px) {
+    :root {
+        --card-pad: 26px;
+    }
 }
 
 @media (max-width: 880px) {
@@ -1344,7 +1352,7 @@ h2 .highlight {
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
     border-radius: 20px;
-    padding: 38px 34px;
+    padding: var(--card-pad);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
@@ -1424,7 +1432,7 @@ h2 .highlight {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 40px;
     align-items: center;
-    padding: 38px 34px;
+    padding: var(--card-pad);
     border: 1px solid transparent;
     border-radius: 22px;
     background: var(--bg-main);
@@ -1476,7 +1484,7 @@ h2 .highlight {
 .offer-minor {
     display: flex;
     flex-direction: column;
-    padding: 28px 34px;
+    padding: var(--card-pad);
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
     border-radius: 18px;
@@ -1532,11 +1540,6 @@ h2 .highlight {
     .offer-main {
         grid-template-columns: 1fr;
         gap: 24px;
-        padding: 30px 26px;
-    }
-
-    .offer-minor {
-        padding: 26px 26px;
     }
 
     .offer-main h3 {
@@ -1609,9 +1612,6 @@ h2 .highlight {
         grid-template-columns: 1fr;
     }
 
-    .package-card {
-        padding: 30px 26px;
-    }
 
     .package-card h3 {
         font-size: 27px;
@@ -1647,7 +1647,7 @@ h2 .highlight {
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
     border-radius: 20px;
-    padding: 40px 38px;
+    padding: var(--card-pad);
     margin-top: 24px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     transition:
@@ -1711,7 +1711,6 @@ h2 .highlight {
     .offer-wide {
         grid-template-columns: 1fr;
         gap: 26px;
-        padding: 30px 26px;
     }
 
     .offer-wide h3 {
@@ -2139,7 +2138,7 @@ h2 .highlight {
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
     border-radius: 20px;
-    padding: 30px 30px 28px;
+    padding: var(--card-pad);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
@@ -2257,7 +2256,6 @@ h2 .highlight {
 
     .quote-card {
         flex-basis: 84%;
-        padding: 26px 24px 24px;
     }
 
     .quote-card blockquote p {
