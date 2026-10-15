@@ -68,6 +68,7 @@
 :root {
     /* Inner padding shared by every card on the site. */
     --card-pad: 34px;
+    --card-radius: 20px;
     --bg-main: #f5f1e8;
     --bg-alt: #c8d2c5;
     --bg-footer: #c8d2c5;
@@ -647,7 +648,7 @@ h2 .highlight {
 .ideal-card {
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.2);
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     transition:
@@ -1351,7 +1352,7 @@ h2 .highlight {
 .package-card {
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     padding: var(--card-pad);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     display: flex;
@@ -1434,7 +1435,7 @@ h2 .highlight {
     align-items: center;
     padding: var(--card-pad);
     border: 1px solid transparent;
-    border-radius: 22px;
+    border-radius: var(--card-radius);
     background: var(--bg-main);
     color: var(--text);
     box-shadow: 0 14px 34px rgba(15, 36, 25, 0.18);
@@ -1487,7 +1488,7 @@ h2 .highlight {
     padding: var(--card-pad);
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
-    border-radius: 18px;
+    border-radius: var(--card-radius);
 }
 
 .offer-minor-meta {
@@ -1646,7 +1647,7 @@ h2 .highlight {
     align-items: center;
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     padding: var(--card-pad);
     margin-top: 24px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
@@ -2137,7 +2138,7 @@ h2 .highlight {
     flex-direction: column;
     background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
-    border-radius: 20px;
+    border-radius: var(--card-radius);
     padding: var(--card-pad);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
