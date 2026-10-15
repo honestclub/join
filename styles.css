@@ -1421,7 +1421,7 @@ h2 .highlight {
 
 .offer-main {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 40px;
     align-items: center;
     padding: 40px 44px;
@@ -1463,27 +1463,7 @@ h2 .highlight {
 
 .offer-main-side {
     display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: flex-start;
-}
-
-.offer-facts {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.offer-facts li {
-    font-size: 15px;
-    color: rgba(var(--text-rgb), 0.9);
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(var(--highlight-rgb), 0.18);
-}
-
-.offer-facts li:first-child {
-    border-top: 1px solid rgba(var(--highlight-rgb), 0.18);
+    justify-content: flex-end;
 }
 
 .offer-minor-row {
@@ -1556,6 +1536,10 @@ h2 .highlight {
 
     .offer-main h3 {
         font-size: 30px;
+    }
+
+    .offer-main-side {
+        justify-content: flex-start;
     }
 
     .offer-minor-row {
