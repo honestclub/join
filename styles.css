@@ -1018,7 +1018,9 @@ h2 .highlight {
         margin-bottom: 16px;
     }
 
-    .package-grid + .offer-group {
+    .package-grid + .offer-group,
+
+    .offers + .offer-group {
         margin-top: 40px;
         padding-top: 28px;
     }
@@ -1323,7 +1325,9 @@ h2 .highlight {
     transition: color 0.5s ease;
 }
 
-.package-grid + .offer-group {
+.package-grid + .offer-group,
+
+.offers + .offer-group {
     margin-top: 52px;
     padding-top: 36px;
     border-top: 1px solid rgba(var(--accent-rgb), 0.22);
@@ -1492,6 +1496,7 @@ h2 .highlight {
     display: flex;
     flex-direction: column;
     padding: 24px 26px;
+    background: var(--bg-main);
     border: 1px solid rgba(var(--accent-rgb), 0.22);
     border-radius: 18px;
 }
