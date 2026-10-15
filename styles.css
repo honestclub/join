@@ -118,15 +118,15 @@
     --accent: #4a6b5d;
     --accent-rgb: 74, 107, 93;
 
-    --highlight: #f2b84b;
-    --highlight-rgb: 242, 184, 75;
+    --highlight: #e8d5a3;
+    --highlight-rgb: 232, 213, 163;
 
-    --mark: #f2b84b;
-    --mark-rgb: 242, 184, 75;
+    --mark: #e8d5a3;
+    --mark-rgb: 232, 213, 163;
 
     --btn-bg: #f5f1e8;
     --btn-text: #0f2419;
-    --btn-hover-bg: #f2b84b;
+    --btn-hover-bg: #e8d5a3;
 
     --hero-img-opacity: 0.3;
 }
