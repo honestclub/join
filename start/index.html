@@ -320,11 +320,10 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 0;
-                border-top: 1px solid rgba(var(--accent-rgb), 0.35);
             }
 
             .lp-who li {
-                padding: 28px 28px 8px 0;
+                padding: 4px 28px 8px 0;
             }
 
             .lp-who li + li {
@@ -658,6 +657,10 @@
                 .lp-who li + li {
                     padding: 24px 0;
                     border-left: 0;
+                }
+
+                .lp-who li:first-child {
+                    padding-top: 0;
                 }
 
                 .lp-who li + li {
