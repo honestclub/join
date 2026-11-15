@@ -490,7 +490,23 @@
 
             /* ---------- CLOSING CARD + EMAIL ---------- */
             .lp-final .final-cta {
-                max-width: 640px;
+                max-width: 880px;
+            }
+
+            .lp-final .final-cta p {
+                max-width: 560px;
+            }
+
+            /* "Not ready yet?" glides down to the email form instead of
+               jumping, and stops a little short of the edge. */
+            @media (prefers-reduced-motion: no-preference) {
+                html {
+                    scroll-behavior: smooth;
+                }
+            }
+
+            #stay {
+                scroll-margin-top: 40px;
             }
 
             .lp-or {
@@ -528,7 +544,7 @@
             }
 
             .lp-final .signup-embed {
-                max-width: 440px;
+                max-width: 560px;
             }
 
             .lp-final .signup-note {
