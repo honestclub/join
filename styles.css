@@ -919,8 +919,9 @@ h2 .highlight {
 /* ---------- NAME TAG, STICKER, POP ----------
    The /start/ hero's printed-photo card, lifted into a small kit for
    the rest of the site. Use it sparingly: a name tag on the about photo,
-   a sticker on a closing card that offers the free call, a tilted flag.
-   One sticker per page at most, so it stays a wink and not a sales tag. */
+   a sticker on a closing card that offers the free call, and one on the
+   recommended plan. One sticker per section at most, so it stays a wink
+   and not a sales tag. */
 
 /* Name tag pinned over the bottom corner of a printed photo. It sits
    outside the flipping card, so the photo turns underneath it. */
@@ -1016,17 +1017,20 @@ h2 .highlight {
         bottom: 22px;
     }
 
-    .final-cta .sticker {
+    .sticker {
         width: 76px;
         height: 76px;
-        top: -34px;
-        right: -6px;
         font-size: 8.5px;
         letter-spacing: 1px;
     }
 
-    .final-cta .sticker b {
+    .sticker b {
         font-size: 22px;
+    }
+
+    .final-cta .sticker {
+        top: -34px;
+        right: -6px;
     }
 }
 
@@ -1561,6 +1565,7 @@ h2 .highlight {
 }
 
 .offer-main {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 40px;
@@ -1573,22 +1578,12 @@ h2 .highlight {
     box-shadow: 0 14px 34px rgba(15, 36, 25, 0.18);
 }
 
-/* Tilted like a sticker on the card, and pops in with the stickers. */
-.offer-flag {
-    --tilt: -3deg;
-    display: inline-block;
-    transform: rotate(var(--tilt));
-    transform-origin: left center;
-    font-family: "DM Mono", ui-monospace, monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    color: #0f2419;
-    background: var(--marigold);
-    border-radius: 999px;
-    padding: 6px 12px;
-    margin-bottom: 18px;
+/* Best for most people: a round sticker on the card's top corner. The
+   Book now button drops to the card's last line to give it room. */
+.offer-main .sticker {
+    --tilt: -10deg;
+    top: -38px;
+    right: -12px;
 }
 
 .offer-main h3 {
@@ -1610,6 +1605,7 @@ h2 .highlight {
 .offer-main-side {
     display: flex;
     justify-content: flex-end;
+    align-self: end;
 }
 
 .offer-main,
@@ -1700,6 +1696,13 @@ h2 .highlight {
 
     .offer-main-side {
         justify-content: flex-start;
+    }
+
+    /* Higher and in from the edge, so it clears the plan name and the
+       rotated corners stay on screen. */
+    .offer-main .sticker {
+        top: -42px;
+        right: 2px;
     }
 
     .offer-minor-row {
