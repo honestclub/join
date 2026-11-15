@@ -513,7 +513,7 @@
                 display: flex;
                 align-items: center;
                 gap: 16px;
-                margin: 44px 0 20px;
+                margin: 32px 0 14px;
                 font-family: "DM Mono", ui-monospace, monospace;
                 font-size: 12px;
                 font-weight: 500;
@@ -530,17 +530,61 @@
                 background: rgba(var(--accent-rgb), 0.3);
             }
 
-            .lp-final h3 {
-                font-family: "Gooper", Georgia, serif;
-                font-size: 26px;
-                font-weight: 400;
-                line-height: 1.25;
-                margin-bottom: 10px;
+            /* Compact closing card: it should sit inside the screen
+               with the photo still showing around it, not fill it. */
+            .lp-final .container {
+                padding-top: 72px;
+                padding-bottom: 72px;
+            }
+
+            .lp-final .final-cta {
+                padding: 44px 48px 36px;
+            }
+
+            .lp-final .final-cta-photo {
+                width: 72px;
+                height: 72px;
+                margin-bottom: 16px;
+            }
+
+            .lp-final .final-cta h2 {
+                margin-bottom: 12px;
+            }
+
+            .lp-final .final-cta > p {
+                margin-bottom: 24px;
+            }
+
+            /* Email field and button side by side. Kit's script narrows
+               the form's min-width attribute once it loads, which flips
+               its stock styles to stacked; this keeps them in one row. */
+            .lp-final .formkit-fields {
+                flex-wrap: nowrap !important;
+                gap: 10px;
+                margin: 0 !important;
+            }
+
+            .lp-final .formkit-field {
+                flex: 1 1 auto !important;
+                margin: 0 !important;
+            }
+
+            .lp-final .formkit-submit {
+                flex: 0 0 auto !important;
+                margin: 0 !important;
+            }
+
+            .lp-final .formkit-powered-by-convertkit-container {
+                margin-top: 10px !important;
+            }
+
+            .lp-final .formkit-powered-by-convertkit {
+                height: 24px !important;
             }
 
             .lp-final .final-cta p.lp-stay-copy {
                 font-size: 16px;
-                margin-bottom: 22px;
+                margin-bottom: 16px;
             }
 
             .lp-final .signup-embed {
@@ -548,7 +592,7 @@
             }
 
             .lp-final .signup-note {
-                margin-top: 10px !important;
+                margin-top: 4px !important;
                 font-size: 13px !important;
             }
 
@@ -693,6 +737,24 @@
             }
 
             @media (max-width: 640px) {
+                .lp-final .container {
+                    padding-top: 48px;
+                    padding-bottom: 48px;
+                }
+
+                .lp-final .final-cta {
+                    padding: 36px 22px 28px;
+                }
+
+                .lp-final .formkit-fields {
+                    flex-wrap: wrap !important;
+                }
+
+                .lp-final .formkit-field,
+                .lp-final .formkit-submit {
+                    flex: 1 0 100% !important;
+                }
+
                 .logo-bar {
                     padding-top: 32px;
                 }
@@ -1197,7 +1259,6 @@
 
                         <div id="stay">
                             <div class="lp-or">Not ready yet?</div>
-                            <h3>Stay in touch</h3>
                             <p class="lp-stay-copy">
                                 Leave your email and I'll reach out
                                 personally. No pressure, no spam.

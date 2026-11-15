@@ -89,6 +89,12 @@
     --mark: #f2b84b;
     --mark-rgb: 242, 184, 75;
 
+    /* The eyebrow star is the one mark that has to read on its own, so
+       on light sections it uses a deeper gold: 4.4:1 on cream and 3.2:1
+       on sage, past the 3:1 WCAG asks of graphics. Marigold itself is
+       only 1.6:1 and 1.15:1 there. */
+    --eyebrow-star: #9a6408;
+
     --btn-bg: #0f2419;
     --btn-text: #f5f1e8;
     --btn-hover-bg: #1a3a2e;
@@ -123,6 +129,9 @@
 
     --mark: #e8d5a3;
     --mark-rgb: 232, 213, 163;
+
+    /* Pale gold on forest is 11.3:1. */
+    --eyebrow-star: var(--mark);
 
     --btn-bg: #f5f1e8;
     --btn-text: #0f2419;
@@ -557,7 +566,7 @@ h1 {
 
 .section-eyebrow::before {
     content: "✳";
-    color: var(--mark);
+    color: var(--eyebrow-star);
     font-size: 16px;
     line-height: 1;
     transform: translateY(-1.5px);
