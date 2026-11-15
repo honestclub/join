@@ -246,6 +246,10 @@ body.loaded .bg-hero::before {
 
 .bg-alt {
     background: var(--bg-alt);
+    /* Muted green text (step numbers, card links) reads at 3.8:1 on sage.
+       A shade deeper reaches 4.7:1, past WCAG AA for small text. Borders
+       and tints keep using --accent-rgb, so only text darkens. */
+    --accent: #3d5c4f;
 }
 
 .bg-base {
