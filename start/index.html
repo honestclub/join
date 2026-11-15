@@ -308,7 +308,6 @@
                 font-family: "Gooper", Georgia, serif;
                 font-size: 24px;
                 line-height: 1.4;
-                max-width: 32ch;
             }
 
             .lp-nod em {
@@ -321,11 +320,10 @@
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 0;
-                border-top: 1px solid rgba(var(--accent-rgb), 0.35);
             }
 
             .lp-who li {
-                padding: 28px 28px 8px 0;
+                padding: 4px 28px 8px 0;
             }
 
             .lp-who li + li {
@@ -492,7 +490,23 @@
 
             /* ---------- CLOSING CARD + EMAIL ---------- */
             .lp-final .final-cta {
-                max-width: 640px;
+                max-width: 880px;
+            }
+
+            .lp-final .final-cta p {
+                max-width: 560px;
+            }
+
+            /* "Not ready yet?" glides down to the email form instead of
+               jumping, and stops a little short of the edge. */
+            @media (prefers-reduced-motion: no-preference) {
+                html {
+                    scroll-behavior: smooth;
+                }
+            }
+
+            #stay {
+                scroll-margin-top: 40px;
             }
 
             .lp-or {
@@ -530,7 +544,7 @@
             }
 
             .lp-final .signup-embed {
-                max-width: 440px;
+                max-width: 560px;
             }
 
             .lp-final .signup-note {
@@ -659,6 +673,10 @@
                 .lp-who li + li {
                     padding: 24px 0;
                     border-left: 0;
+                }
+
+                .lp-who li:first-child {
+                    padding-top: 0;
                 }
 
                 .lp-who li + li {
