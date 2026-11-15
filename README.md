@@ -38,3 +38,12 @@ Add all three files together:
 - `media/andrew-intro.en.vtt`: English captions (WebVTT)
 
 It never autoplays.
+
+## Instagram ad landing page
+
+`/start/` (https://honestclub.co/start/) is the page the Instagram ads link
+to. It is `noindex` and left out of `sitemap.xml` on purpose. The main
+button goes to the cal.com discovery call, carrying any `utm_*` / `fbclid`
+tags from the ad link (or `utm_source=instagram` if the ad has none), plus
+`utm_content` naming which button was tapped. The "Stay in touch" email
+form is Kit form `10191454`; its stock styles live in `start/kit-form.css`.
