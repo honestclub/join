@@ -69,6 +69,25 @@
                 max-width: 36ch;
             }
 
+            /* No orphans: headings balance their lines, and body copy
+               avoids leaving a single word alone on the last line. */
+            h1,
+            h2,
+            h3,
+            summary,
+            .lp-nod,
+            .lp-proof-title,
+            .lp-sticky-text {
+                text-wrap: balance;
+            }
+
+            p,
+            li,
+            blockquote,
+            figcaption {
+                text-wrap: pretty;
+            }
+
             /* Keep each emphasised phrase on one line rather than
                stranding a single word. */
             .lp-hero h1 .highlight,
@@ -751,12 +770,8 @@
                         </h1>
 
                         <p class="hero-sub">
-                            In a rut, at a crossroads, or going in circles
-                            in your own head? Coaching gives you the space
-                            to figure out what's next. I work with product
-                            designers, creatives, and people in tech who
-                            want work and a life that feel
-                            <span class="highlight">like theirs</span>.
+                            Coaching for product designers, creatives, and
+                            people in tech who are ready for what's next.
                         </p>
 
                         <div class="lp-cta-row">
@@ -785,7 +800,7 @@
                         <span class="lp-sticker" aria-hidden="true"><b>Free</b>25 min<br />session</span>
                         <figcaption>
                             <strong>Andrew Tolentino</strong>
-                            Co-Active coach &middot; ex-design leader
+                            Co-Active coach &middot; Design leader
                         </figcaption>
                     </figure>
                 </div>
