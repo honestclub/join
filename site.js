@@ -49,6 +49,26 @@ if (scribbles.length && "IntersectionObserver" in window) {
     });
 }
 
+// Stickers and flags pop in once as they reach the screen. Like the
+// scribbles, the CSS only hides them once this class is on the page.
+var pops = document.querySelectorAll(".pop");
+if (pops.length && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("pops-ready");
+    var popObserver = new IntersectionObserver(
+        function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-popped");
+                popObserver.unobserve(entry.target);
+            });
+        },
+        { rootMargin: "0px 0px -15% 0px" }
+    );
+    pops.forEach(function (el) {
+        popObserver.observe(el);
+    });
+}
+
 // Photo slots. An image with data-photo shows its landscape fallback until
 // that file exists on the server; then the real photo (and its alt text)
 // swaps in. Each slot is only checked as it nears the screen, so pages
